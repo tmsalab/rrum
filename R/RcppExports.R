@@ -4,66 +4,68 @@
 #' @title Generate Multinomial Random Variable
 #' @description Sample a multinomial random variable for given probabilities.
 #' @usage rmultinomial(ps)
-#' @param ps A \code{vector} for the probability of each category.
-#' @return A \code{vector} from a multinomial with probability ps.
+#' @param ps A `vector` for the probability of each category.
+#' @return A `vector` from a multinomial with probability ps.
 #' @author Steven Andrew Culpepper
-#'
-rmultinomialcpp <- function(ps) {
-    .Call('_rRUM_rmultinomialcpp', PACKAGE = 'rRUM', ps)
+#' @export
+rmultinomial <- function(ps) {
+    .Call(`_rrum_rmultinomial`, ps)
 }
 
 bijectionvectorcpp <- function(K) {
-    .Call('_rRUM_bijectionvectorcpp', PACKAGE = 'rRUM', K)
+    .Call(`_rrum_bijectionvectorcpp`, K)
 }
 
 #' @title Generate Dirichlet Random Variable
 #' @description Sample a Dirichlet random variable.
 #' @usage rDirichlet(deltas)
-#' @param deltas A \code{vector} of Dirichlet parameters.
-#' @return A \code{vector} from a Dirichlet.
+#' @param deltas A `vector` of Dirichlet parameters.
+#' @return A `vector` from a Dirichlet.
 #' @author Steven Andrew Culpepper
-#'
-rDirichletcpp <- function(deltas) {
-    .Call('_rRUM_rDirichletcpp', PACKAGE = 'rRUM', deltas)
+#' @export
+rDirichlet <- function(deltas) {
+    .Call(`_rrum_rDirichlet`, deltas)
 }
 
 #' @title Generate data from the rRUM
 #' @description Randomly generate response data according to the reduced Reparametrized Unified Model (rRUM).
 #' @usage simrRUM(N, J, K, Q, rstar, pistar, alpha)
-#' @param N A \code{numeric} indicating the number of observations for whom response data should be generated.
-#' @param Q A \code{matrix} with J rows and K columns indicating which attributes are required to answer each of the items, where J represents the number of items and K the number of attributes.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
-#' @param rstar A \code{matrix} a matrix with J rows and K columns indicating the penalties for failing to have each of the required attributes, where J represents the number of items and K the number of attributes.  rstar and Q must share the same 0 entries.
-#' @param pistar A \code{vector} of length J indicating the probabiliies of answering each item correctly for individuals who do not lack any required attribute, where J represents the number of items.
-#' @param alpha A \code{matrix} with N rows and K columns indicating the subjects attribute acquisition, where K represents the number of attributes.  An entry of 1 indicates individual i has attained attribute k.  An entry of 0 indicates the attribute has not been attained.
-#' @return Y A \code{matrix} with N rows and J columns indicating the indviduals' responses to each of the items, where J represents the number of items.
+#' @param N A `numeric` indicating the number of observations for whom response data should be generated.
+#' @param Q A `matrix` with J rows and K columns indicating which attributes are required to answer each of the items, where J represents the number of items and K the number of attributes.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
+#' @param rstar A `matrix` a matrix with J rows and K columns indicating the penalties for failing to have each of the required attributes, where J represents the number of items and K the number of attributes.  rstar and Q must share the same 0 entries.
+#' @param pistar A `vector` of length J indicating the probabiliies of answering each item correctly for individuals who do not lack any required attribute, where J represents the number of items.
+#' @param alpha A `matrix` with N rows and K columns indicating the subjects attribute acquisition, where K represents the number of attributes.  An entry of 1 indicates individual i has attained attribute k.  An entry of 0 indicates the attribute has not been attained.
+#' @return Y A `matrix` with N rows and J columns indicating the indviduals' responses to each of the items, where J represents the number of items.
 #' @author Steven Andrew Culpepper
-#'
+#' @export
+#' @template rrum-example
 simrRUMcpp <- function(N, Q, rstar, pistar, alpha) {
-    .Call('_rRUM_simrRUMcpp', PACKAGE = 'rRUM', N, Q, rstar, pistar, alpha)
+    .Call(`_rrum_simrRUMcpp`, N, Q, rstar, pistar, alpha)
 }
 
+#' @export
 parm_updatecpp <- function(N, J, K, C, Y, Q, alpha, X, Smat, Gmat, pi, vv, delta0, as = 1, bs = 1, ag = 1, bg = 1) {
-    .Call('_rRUM_parm_updatecpp', PACKAGE = 'rRUM', N, J, K, C, Y, Q, alpha, X, Smat, Gmat, pi, vv, delta0, as, bs, ag, bg)
+    .Call(`_rrum_parm_updatecpp`, N, J, K, C, Y, Q, alpha, X, Smat, Gmat, pi, vv, delta0, as, bs, ag, bg)
 }
 
 #' @title Gibbs sampler to estimate the rRUM
 #' @description Obtains samples from posterior distributon for the reduced Reparametrized Unified Model (rRUM).
 #' @usage rRUM(Y, Q, chain_length = 10000)
-#' @param Y A \code{matrix} with N rows and J columns indicating the indviduals' responses to each of the items.
-#' @param Q A \code{matrix} with J rows and K columns indicating which attributes are required to answer each of the items.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
-#' @param chain_length A \code{numeric} indicating the number of iterations of Gibbs sampler to be run.  Default is set to 10000.
-#' @param as A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage higher values of pistar and lower values of rstar.
-#' @param bs A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage lower values of pistar and higher values of rstar.
-#' @param ag A \code{numeric}, parameter for the prior distribution of rstar.  High values as encourage higher values of rstar.
-#' @param bg A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage lower values of rstar.
-#' @param deltas \code{vector}, parameters for the Dirichlet prior on pi.
-#' @return PISTAR A \code{matrix} where each column represents one draw from the posterior distribution of pistar.
-#' @return RSTAR A J x K x chain_length \code{array} where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
-#' @return PI \code{matrix} where each column reperesents one draw from the posterior distribution of pi.
-#' @return ALPHA An N x K x chain_length \code{array} where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
+#' @param Y A `matrix` with N rows and J columns indicating the indviduals' responses to each of the items.
+#' @param Q A `matrix` with J rows and K columns indicating which attributes are required to answer each of the items.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
+#' @param chain_length A `numeric` indicating the number of iterations of Gibbs sampler to be run.  Default is set to 10000.
+#' @param as A `numeric`, parameter for the prior distribution of pistar.  High values as encourage higher values of pistar and lower values of rstar.
+#' @param bs A `numeric`, parameter for the prior distribution of pistar.  High values as encourage lower values of pistar and higher values of rstar.
+#' @param ag A `numeric`, parameter for the prior distribution of rstar.  High values as encourage higher values of rstar.
+#' @param bg A `numeric`, parameter for the prior distribution of pistar.  High values as encourage lower values of rstar.
+#' @param deltas `vector`, parameters for the Dirichlet prior on pi.
+#' @return PISTAR A `matrix` where each column represents one draw from the posterior distribution of pistar.
+#' @return RSTAR A J x K x chain_length `array` where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
+#' @return PI `matrix` where each column reperesents one draw from the posterior distribution of pi.
+#' @return ALPHA An N x K x chain_length `array` where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
 #' @author Steven Andrew Culpepper, Aaron Hudson
-#'
+#' @export
 rRUM_Gibbscpp <- function(Y, Q, delta0, chain_length = 10000L, as = 1, bs = 1, ag = 1, bg = 1) {
-    .Call('_rRUM_rRUM_Gibbscpp', PACKAGE = 'rRUM', Y, Q, delta0, chain_length, as, bs, ag, bg)
+    .Call(`_rrum_rRUM_Gibbscpp`, Y, Q, delta0, chain_length, as, bs, ag, bg)
 }
 

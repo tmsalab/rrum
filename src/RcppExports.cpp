@@ -6,20 +6,20 @@
 
 using namespace Rcpp;
 
-// rmultinomialcpp
-double rmultinomialcpp(const arma::rowvec& ps);
-RcppExport SEXP _rRUM_rmultinomialcpp(SEXP psSEXP) {
+// rmultinomial
+double rmultinomial(const arma::rowvec& ps);
+RcppExport SEXP _rrum_rmultinomial(SEXP psSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::rowvec& >::type ps(psSEXP);
-    rcpp_result_gen = Rcpp::wrap(rmultinomialcpp(ps));
+    rcpp_result_gen = Rcpp::wrap(rmultinomial(ps));
     return rcpp_result_gen;
 END_RCPP
 }
 // bijectionvectorcpp
 arma::vec bijectionvectorcpp(unsigned int K);
-RcppExport SEXP _rRUM_bijectionvectorcpp(SEXP KSEXP) {
+RcppExport SEXP _rrum_bijectionvectorcpp(SEXP KSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -28,20 +28,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// rDirichletcpp
-arma::vec rDirichletcpp(const arma::vec& deltas);
-RcppExport SEXP _rRUM_rDirichletcpp(SEXP deltasSEXP) {
+// rDirichlet
+arma::vec rDirichlet(const arma::vec& deltas);
+RcppExport SEXP _rrum_rDirichlet(SEXP deltasSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::vec& >::type deltas(deltasSEXP);
-    rcpp_result_gen = Rcpp::wrap(rDirichletcpp(deltas));
+    rcpp_result_gen = Rcpp::wrap(rDirichlet(deltas));
     return rcpp_result_gen;
 END_RCPP
 }
 // simrRUMcpp
 arma::mat simrRUMcpp(unsigned int N, const arma::mat& Q, const arma::mat& rstar, const arma::vec& pistar, const arma::mat& alpha);
-RcppExport SEXP _rRUM_simrRUMcpp(SEXP NSEXP, SEXP QSEXP, SEXP rstarSEXP, SEXP pistarSEXP, SEXP alphaSEXP) {
+RcppExport SEXP _rrum_simrRUMcpp(SEXP NSEXP, SEXP QSEXP, SEXP rstarSEXP, SEXP pistarSEXP, SEXP alphaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -56,7 +56,7 @@ END_RCPP
 }
 // parm_updatecpp
 Rcpp::List parm_updatecpp(unsigned int N, unsigned int J, unsigned int K, unsigned int C, const arma::mat Y, const arma::mat& Q, arma::mat& alpha, arma::cube& X, arma::mat& Smat, arma::mat& Gmat, arma::vec& pi, const arma::vec vv, const arma::vec& delta0, double as, double bs, double ag, double bg);
-RcppExport SEXP _rRUM_parm_updatecpp(SEXP NSEXP, SEXP JSEXP, SEXP KSEXP, SEXP CSEXP, SEXP YSEXP, SEXP QSEXP, SEXP alphaSEXP, SEXP XSEXP, SEXP SmatSEXP, SEXP GmatSEXP, SEXP piSEXP, SEXP vvSEXP, SEXP delta0SEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
+RcppExport SEXP _rrum_parm_updatecpp(SEXP NSEXP, SEXP JSEXP, SEXP KSEXP, SEXP CSEXP, SEXP YSEXP, SEXP QSEXP, SEXP alphaSEXP, SEXP XSEXP, SEXP SmatSEXP, SEXP GmatSEXP, SEXP piSEXP, SEXP vvSEXP, SEXP delta0SEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -83,7 +83,7 @@ END_RCPP
 }
 // rRUM_Gibbscpp
 Rcpp::List rRUM_Gibbscpp(const arma::mat& Y, const arma::mat& Q, const arma::vec& delta0, unsigned int chain_length, double as, double bs, double ag, double bg);
-RcppExport SEXP _rRUM_rRUM_Gibbscpp(SEXP YSEXP, SEXP QSEXP, SEXP delta0SEXP, SEXP chain_lengthSEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
+RcppExport SEXP _rrum_rRUM_Gibbscpp(SEXP YSEXP, SEXP QSEXP, SEXP delta0SEXP, SEXP chain_lengthSEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -101,16 +101,16 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_rRUM_rmultinomialcpp", (DL_FUNC) &_rRUM_rmultinomialcpp, 1},
-    {"_rRUM_bijectionvectorcpp", (DL_FUNC) &_rRUM_bijectionvectorcpp, 1},
-    {"_rRUM_rDirichletcpp", (DL_FUNC) &_rRUM_rDirichletcpp, 1},
-    {"_rRUM_simrRUMcpp", (DL_FUNC) &_rRUM_simrRUMcpp, 5},
-    {"_rRUM_parm_updatecpp", (DL_FUNC) &_rRUM_parm_updatecpp, 17},
-    {"_rRUM_rRUM_Gibbscpp", (DL_FUNC) &_rRUM_rRUM_Gibbscpp, 8},
+    {"_rrum_rmultinomial", (DL_FUNC) &_rrum_rmultinomial, 1},
+    {"_rrum_bijectionvectorcpp", (DL_FUNC) &_rrum_bijectionvectorcpp, 1},
+    {"_rrum_rDirichlet", (DL_FUNC) &_rrum_rDirichlet, 1},
+    {"_rrum_simrRUMcpp", (DL_FUNC) &_rrum_simrRUMcpp, 5},
+    {"_rrum_parm_updatecpp", (DL_FUNC) &_rrum_parm_updatecpp, 17},
+    {"_rrum_rRUM_Gibbscpp", (DL_FUNC) &_rrum_rRUM_Gibbscpp, 8},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_rRUM(DllInfo *dll) {
+RcppExport void R_init_rrum(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }
