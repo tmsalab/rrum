@@ -54,33 +54,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// parm_updatecpp
-Rcpp::List parm_updatecpp(unsigned int N, unsigned int J, unsigned int K, unsigned int C, const arma::mat Y, const arma::mat& Q, arma::mat& alpha, arma::cube& X, arma::mat& Smat, arma::mat& Gmat, arma::vec& pi, const arma::vec vv, const arma::vec& delta0, double as, double bs, double ag, double bg);
-RcppExport SEXP _rrum_parm_updatecpp(SEXP NSEXP, SEXP JSEXP, SEXP KSEXP, SEXP CSEXP, SEXP YSEXP, SEXP QSEXP, SEXP alphaSEXP, SEXP XSEXP, SEXP SmatSEXP, SEXP GmatSEXP, SEXP piSEXP, SEXP vvSEXP, SEXP delta0SEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< unsigned int >::type N(NSEXP);
-    Rcpp::traits::input_parameter< unsigned int >::type J(JSEXP);
-    Rcpp::traits::input_parameter< unsigned int >::type K(KSEXP);
-    Rcpp::traits::input_parameter< unsigned int >::type C(CSEXP);
-    Rcpp::traits::input_parameter< const arma::mat >::type Y(YSEXP);
-    Rcpp::traits::input_parameter< const arma::mat& >::type Q(QSEXP);
-    Rcpp::traits::input_parameter< arma::mat& >::type alpha(alphaSEXP);
-    Rcpp::traits::input_parameter< arma::cube& >::type X(XSEXP);
-    Rcpp::traits::input_parameter< arma::mat& >::type Smat(SmatSEXP);
-    Rcpp::traits::input_parameter< arma::mat& >::type Gmat(GmatSEXP);
-    Rcpp::traits::input_parameter< arma::vec& >::type pi(piSEXP);
-    Rcpp::traits::input_parameter< const arma::vec >::type vv(vvSEXP);
-    Rcpp::traits::input_parameter< const arma::vec& >::type delta0(delta0SEXP);
-    Rcpp::traits::input_parameter< double >::type as(asSEXP);
-    Rcpp::traits::input_parameter< double >::type bs(bsSEXP);
-    Rcpp::traits::input_parameter< double >::type ag(agSEXP);
-    Rcpp::traits::input_parameter< double >::type bg(bgSEXP);
-    rcpp_result_gen = Rcpp::wrap(parm_updatecpp(N, J, K, C, Y, Q, alpha, X, Smat, Gmat, pi, vv, delta0, as, bs, ag, bg));
-    return rcpp_result_gen;
-END_RCPP
-}
 // rRUM_Gibbscpp
 Rcpp::List rRUM_Gibbscpp(const arma::mat& Y, const arma::mat& Q, const arma::vec& delta0, unsigned int chain_length, double as, double bs, double ag, double bg);
 RcppExport SEXP _rrum_rRUM_Gibbscpp(SEXP YSEXP, SEXP QSEXP, SEXP delta0SEXP, SEXP chain_lengthSEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
@@ -105,7 +78,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_rrum_bijectionvectorcpp", (DL_FUNC) &_rrum_bijectionvectorcpp, 1},
     {"_rrum_rDirichlet", (DL_FUNC) &_rrum_rDirichlet, 1},
     {"_rrum_simrRUMcpp", (DL_FUNC) &_rrum_simrRUMcpp, 5},
-    {"_rrum_parm_updatecpp", (DL_FUNC) &_rrum_parm_updatecpp, 17},
     {"_rrum_rRUM_Gibbscpp", (DL_FUNC) &_rrum_rRUM_Gibbscpp, 8},
     {NULL, NULL, 0}
 };

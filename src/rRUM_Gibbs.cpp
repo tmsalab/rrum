@@ -1,45 +1,43 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-using namespace Rcpp;
-
 //' @title Generate Multinomial Random Variable
 //' @description Sample a multinomial random variable for given probabilities.
 //' @usage rmultinomial(ps)
-//' @param ps A \code{vector} for the probability of each category.
-//' @return A \code{vector} from a multinomial with probability ps.
+//' @param ps A `vector` for the probability of each category.
+//' @return A `vector` from a multinomial with probability ps.
 //' @author Steven Andrew Culpepper
-//'
+//' @export
 // [[Rcpp::export]]
-double rmultinomialcpp(const arma::rowvec& ps){
-unsigned int C = ps.n_elem;
-double u = R::runif(0,1);
-arma::rowvec cps = cumsum(ps);
-arma::rowvec Ips = arma::zeros<arma::rowvec>(C);
-
-Ips.elem(arma::find(cps < u) ).fill(1.0);
-
-return sum(Ips);
+double rmultinomial(const arma::rowvec& ps){
+  unsigned int C = ps.n_elem;
+  double u = R::runif(0,1);
+  arma::rowvec cps = cumsum(ps);
+  arma::rowvec Ips = arma::zeros<arma::rowvec>(C);
+  
+  Ips.elem(arma::find(cps < u) ).fill(1.0);
+  
+  return sum(Ips);
 }
 
 // [[Rcpp::export]]
 arma::vec bijectionvectorcpp(unsigned int K) {
-arma::vec vv(K);
-for(unsigned int k=0;k<K;k++){
-vv(k) = pow(2,K-k-1);
-}
-return vv;
+  arma::vec vv(K);
+  for(unsigned int k=0;k<K;k++){
+    vv(k) = pow(2,K-k-1);
+  }
+  return vv;
 }
 
 //' @title Generate Dirichlet Random Variable
 //' @description Sample a Dirichlet random variable.
 //' @usage rDirichlet(deltas)
-//' @param deltas A \code{vector} of Dirichlet parameters.
-//' @return A \code{vector} from a Dirichlet.
+//' @param deltas A `vector` of Dirichlet parameters.
+//' @return A `vector` from a Dirichlet.
 //' @author Steven Andrew Culpepper
-//'
+//' @export
 // [[Rcpp::export]]
-arma::vec rDirichletcpp(const arma::vec& deltas){
+arma::vec rDirichlet(const arma::vec& deltas){
   unsigned int C = deltas.n_elem;
   arma::vec Xgamma(C);
 
@@ -53,14 +51,15 @@ arma::vec rDirichletcpp(const arma::vec& deltas){
 //' @title Generate data from the rRUM
 //' @description Randomly generate response data according to the reduced Reparametrized Unified Model (rRUM).
 //' @usage simrRUM(N, J, K, Q, rstar, pistar, alpha)
-//' @param N A \code{numeric} indicating the number of observations for whom response data should be generated.
-//' @param Q A \code{matrix} with J rows and K columns indicating which attributes are required to answer each of the items, where J represents the number of items and K the number of attributes.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
-//' @param rstar A \code{matrix} a matrix with J rows and K columns indicating the penalties for failing to have each of the required attributes, where J represents the number of items and K the number of attributes.  rstar and Q must share the same 0 entries.
-//' @param pistar A \code{vector} of length J indicating the probabiliies of answering each item correctly for individuals who do not lack any required attribute, where J represents the number of items.
-//' @param alpha A \code{matrix} with N rows and K columns indicating the subjects attribute acquisition, where K represents the number of attributes.  An entry of 1 indicates individual i has attained attribute k.  An entry of 0 indicates the attribute has not been attained.
-//' @return Y A \code{matrix} with N rows and J columns indicating the indviduals' responses to each of the items, where J represents the number of items.
+//' @param N A `numeric` indicating the number of observations for whom response data should be generated.
+//' @param Q A `matrix` with J rows and K columns indicating which attributes are required to answer each of the items, where J represents the number of items and K the number of attributes.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
+//' @param rstar A `matrix` a matrix with J rows and K columns indicating the penalties for failing to have each of the required attributes, where J represents the number of items and K the number of attributes.  rstar and Q must share the same 0 entries.
+//' @param pistar A `vector` of length J indicating the probabiliies of answering each item correctly for individuals who do not lack any required attribute, where J represents the number of items.
+//' @param alpha A `matrix` with N rows and K columns indicating the subjects attribute acquisition, where K represents the number of attributes.  An entry of 1 indicates individual i has attained attribute k.  An entry of 0 indicates the attribute has not been attained.
+//' @return Y A `matrix` with N rows and J columns indicating the indviduals' responses to each of the items, where J represents the number of items.
 //' @author Steven Andrew Culpepper
-//'
+//' @template rrum-example
+//' @keywords internal
 // [[Rcpp::export]]
 arma::mat simrRUMcpp(unsigned int N,const arma::mat& Q,
                   const arma::mat& rstar, const arma::vec& pistar,
@@ -95,7 +94,7 @@ arma::mat simrRUMcpp(unsigned int N,const arma::mat& Q,
   return Y;
 }
 
-// [[Rcpp::export]]
+//' @keywords internal
 Rcpp::List parm_updatecpp(unsigned int N,unsigned int J,unsigned int K,unsigned int C,const arma::mat Y,
                        const arma::mat& Q,arma::mat& alpha,arma::cube& X,arma::mat& Smat,arma::mat& Gmat,
                        arma::vec& pi,const arma::vec vv,const arma::vec& delta0, double as = 1, double bs = 1,
@@ -156,7 +155,7 @@ Rcpp::List parm_updatecpp(unsigned int N,unsigned int J,unsigned int K,unsigned 
   //update pi
   arma::vec a_bijection = alpha * vv;
   arma::uvec deltatilde = arma::hist( a_bijection,arma::linspace<arma::vec>(0,C-1,C) );
-  pi = rDirichletcpp(deltatilde+delta0);
+  pi = rDirichlet(deltatilde+delta0);
 
   //update Smat and Gmat
   arma::vec pistar = arma::zeros<arma::vec>(J);
@@ -210,20 +209,20 @@ Rcpp::List parm_updatecpp(unsigned int N,unsigned int J,unsigned int K,unsigned 
 //' @title Gibbs sampler to estimate the rRUM
 //' @description Obtains samples from posterior distributon for the reduced Reparametrized Unified Model (rRUM).
 //' @usage rRUM(Y, Q, chain_length = 10000)
-//' @param Y A \code{matrix} with N rows and J columns indicating the indviduals' responses to each of the items.
-//' @param Q A \code{matrix} with J rows and K columns indicating which attributes are required to answer each of the items.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
-//' @param chain_length A \code{numeric} indicating the number of iterations of Gibbs sampler to be run.  Default is set to 10000.
-//' @param as A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage higher values of pistar and lower values of rstar.
-//' @param bs A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage lower values of pistar and higher values of rstar.
-//' @param ag A \code{numeric}, parameter for the prior distribution of rstar.  High values as encourage higher values of rstar.
-//' @param bg A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage lower values of rstar.
-//' @param deltas \code{vector}, parameters for the Dirichlet prior on pi.
-//' @return PISTAR A \code{matrix} where each column represents one draw from the posterior distribution of pistar.
-//' @return RSTAR A J x K x chain_length \code{array} where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
-//' @return PI \code{matrix} where each column reperesents one draw from the posterior distribution of pi.
-//' @return ALPHA An N x K x chain_length \code{array} where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
+//' @param Y A `matrix` with N rows and J columns indicating the indviduals' responses to each of the items.
+//' @param Q A `matrix` with J rows and K columns indicating which attributes are required to answer each of the items.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
+//' @param chain_length A `numeric` indicating the number of iterations of Gibbs sampler to be run.  Default is set to 10000.
+//' @param as A `numeric`, parameter for the prior distribution of pistar.  High values as encourage higher values of pistar and lower values of rstar.
+//' @param bs A `numeric`, parameter for the prior distribution of pistar.  High values as encourage lower values of pistar and higher values of rstar.
+//' @param ag A `numeric`, parameter for the prior distribution of rstar.  High values as encourage higher values of rstar.
+//' @param bg A `numeric`, parameter for the prior distribution of pistar.  High values as encourage lower values of rstar.
+//' @param deltas `vector`, parameters for the Dirichlet prior on pi.
+//' @return PISTAR A `matrix` where each column represents one draw from the posterior distribution of pistar.
+//' @return RSTAR A J x K x chain_length `array` where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
+//' @return PI `matrix` where each column reperesents one draw from the posterior distribution of pi.
+//' @return ALPHA An N x K x chain_length `array` where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
 //' @author Steven Andrew Culpepper, Aaron Hudson
-//'
+//' @keywords internal
 // [[Rcpp::export]]
 Rcpp::List rRUM_Gibbscpp(const arma::mat& Y,const arma::mat& Q, const arma::vec& delta0, unsigned int chain_length=10000,
                       double as = 1, double bs = 1, double ag = 1, double bg = 1){
@@ -250,7 +249,7 @@ Rcpp::List rRUM_Gibbscpp(const arma::mat& Y,const arma::mat& Q, const arma::vec&
   arma::cube X = arma::zeros<arma::cube>(N,J,K);
   arma::mat ss = arma::randu<arma::mat>(J,K);
   arma::mat gs = (arma::ones<arma::mat>(J,K) - ss)%arma::randu<arma::mat>(J,K);
-  arma::vec pis = rDirichletcpp(delta0);
+  arma::vec pis = rDirichlet(delta0);
 
   //Start Markov chain
   for(unsigned int t = 0; t < chain_length; t++){
