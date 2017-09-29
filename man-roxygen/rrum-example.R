@@ -1,4 +1,5 @@
 #' @examples 
+#' \dontrun{
 #' ###################################
 #' ### Generate random data from rRUM
 #' ### and recover parameters with
@@ -28,3 +29,5 @@
 #' rstar.mean <- with(Gibbs.out, apply(RSTAR[,,-burnin], c(1, 2), mean))
 #' pistar.mean <- with(Gibbs.out, apply(PISTAR[,-burnin], 1, mean))
 #' pis.mean <- with(Gibbs.out, apply(PI[,-burnin], 1 ,mean))
+#' }
+

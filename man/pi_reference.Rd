@@ -17,6 +17,7 @@ corresponding to entry c of pi
 Obtains mapping of entries of pi to latent attribute classes.
 }
 \examples{
+\dontrun{
 ###################################
 ### Generate random data from rRUM
 ### and recover parameters with
@@ -46,6 +47,7 @@ burnin <- 1:5000 # iterations to be discarded from chain as burnin
 rstar.mean <- with(Gibbs.out, apply(RSTAR[,,-burnin], c(1, 2), mean))
 pistar.mean <- with(Gibbs.out, apply(PISTAR[,-burnin], 1, mean))
 pis.mean <- with(Gibbs.out, apply(PI[,-burnin], 1 ,mean))
+}
 }
 \references{
 Culpepper, S. A. & Hudson, A. (In Press). An improved strategy for Bayesian 
