@@ -50,7 +50,6 @@ arma::vec rDirichlet(const arma::vec& deltas){
 
 //' @title Generate data from the rRUM
 //' @description Randomly generate response data according to the reduced Reparametrized Unified Model (rRUM).
-//' @usage simrRUM(N, J, K, Q, rstar, pistar, alpha)
 //' @param N A `numeric` indicating the number of observations for whom response data should be generated.
 //' @param Q A `matrix` with J rows and K columns indicating which attributes are required to answer each of the items, where J represents the number of items and K the number of attributes.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
 //' @param rstar A `matrix` a matrix with J rows and K columns indicating the penalties for failing to have each of the required attributes, where J represents the number of items and K the number of attributes.  rstar and Q must share the same 0 entries.
@@ -208,7 +207,6 @@ Rcpp::List parm_updatecpp(unsigned int N,unsigned int J,unsigned int K,unsigned 
 
 //' @title Gibbs sampler to estimate the rRUM
 //' @description Obtains samples from posterior distributon for the reduced Reparametrized Unified Model (rRUM).
-//' @usage rRUM(Y, Q, chain_length = 10000)
 //' @param Y A `matrix` with N rows and J columns indicating the indviduals' responses to each of the items.
 //' @param Q A `matrix` with J rows and K columns indicating which attributes are required to answer each of the items.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
 //' @param chain_length A `numeric` indicating the number of iterations of Gibbs sampler to be run.  Default is set to 10000.
