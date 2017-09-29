@@ -4,7 +4,7 @@
 \alias{simrRUMcpp}
 \title{Generate data from the rRUM}
 \usage{
-simrRUM(N, J, K, Q, rstar, pistar, alpha)
+simrRUMcpp(N, Q, rstar, pistar, alpha)
 }
 \arguments{
 \item{N}{A \code{numeric} indicating the number of observations for whom response data should be generated.}

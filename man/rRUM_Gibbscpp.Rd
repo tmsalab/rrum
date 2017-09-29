@@ -4,7 +4,8 @@
 \alias{rRUM_Gibbscpp}
 \title{Gibbs sampler to estimate the rRUM}
 \usage{
-rRUM(Y, Q, chain_length = 10000)
+rRUM_Gibbscpp(Y, Q, delta0, chain_length = 10000L, as = 1, bs = 1,
+  ag = 1, bg = 1)
 }
 \arguments{
 \item{Y}{A \code{matrix} with N rows and J columns indicating the indviduals' responses to each of the items.}
