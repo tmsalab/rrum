@@ -1,0 +1,7 @@
+useDynLib(rRUM)
+importFrom(Rcpp, evalCpp)
+export(rmultinomial)
+export(rDirichlet)
+export(simrRUM)
+export(rRUM_Gibbs)
+export(pi_reference)
