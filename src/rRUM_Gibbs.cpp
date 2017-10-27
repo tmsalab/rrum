@@ -215,10 +215,11 @@ Rcpp::List parm_updatecpp(unsigned int N,unsigned int J,unsigned int K,unsigned 
 //' @param ag A `numeric`, parameter for the prior distribution of rstar.  High values as encourage higher values of rstar.
 //' @param bg A `numeric`, parameter for the prior distribution of pistar.  High values as encourage lower values of rstar.
 //' @param deltas `vector`, parameters for the Dirichlet prior on pi.
-//' @return PISTAR A `matrix` where each column represents one draw from the posterior distribution of pistar.
-//' @return RSTAR A J x K x chain_length `array` where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
-//' @return PI `matrix` where each column reperesents one draw from the posterior distribution of pi.
-//' @return ALPHA An N x K x chain_length `array` where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
+//' @return A `List`
+//' - PISTAR A `matrix` where each column represents one draw from the posterior distribution of pistar.
+//' - RSTAR A J x K x chain_length `array` where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
+//' - PI `matrix` where each column reperesents one draw from the posterior distribution of pi.
+//' - ALPHA An N x K x chain_length `array` where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
 //' @author Steven Andrew Culpepper, Aaron Hudson
 //' @keywords internal
 // [[Rcpp::export]]
