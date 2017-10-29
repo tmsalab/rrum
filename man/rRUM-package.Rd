@@ -2,8 +2,8 @@
 % Please edit documentation in R/rrum-package.R
 \docType{package}
 \name{rrum-package}
-\alias{rrum}
 \alias{rrum-package}
+\alias{_PACKAGE}
 \title{rrum: Bayesian Estimation of reduced Reparametrized Unified Model
 (rRUM) with Gibbs Sampling}
 \description{
