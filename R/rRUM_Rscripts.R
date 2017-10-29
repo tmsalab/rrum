@@ -28,7 +28,7 @@
 #' @export
 #' @template rrum-example
 #' @template rrum-references
-simrRUM = function(Q, rstar, pistar, alpha) {
+sim_rrum = function(Q, rstar, pistar, alpha) {
   if(!all(dim(Q) == dim(rstar))) {
     stop("Q and rstar must have the same dimensionaltiy")
   }
@@ -71,9 +71,9 @@ simrRUM = function(Q, rstar, pistar, alpha) {
 #' @export
 #' @template rrum-example
 #' @template rrum-references
-rRUM_Gibbs = function(Y, Q, chain_length = 10000L, 
-                      as = 1, bs = 1, ag = 1, bg = 1, 
-                      delta0 = rep(1, 2 ^ ncol(Q))) {
+rrum = function(Y, Q, chain_length = 10000L, 
+                as = 1, bs = 1, ag = 1, bg = 1, 
+                delta0 = rep(1, 2 ^ ncol(Q))) {
   if(nrow(Q) != ncol(Y)) {
     stop("Y must have as many rows as Q has columns")
   }

@@ -67,9 +67,9 @@ pistar <- rep(.9, J) # pistar
 rstar <- .5 * Q # rstar
 alpha <- As[sample(1:(K ^ 2), N, replace = TRUE, pis),]
 # Simulate data
-Y <- simrRUM(Q, rstar, pistar, alpha)
+Y <- sim_rrum(Q, rstar, pistar, alpha)
 # Recover simulation parameters with Gibbs Sampler
-Gibbs.out <- rRUM_Gibbs(Y, Q)
+Gibbs.out <- rrum(Y, Q)
 burnin <- 1:5000 # iterations to be discarded from chain as burnin
 rstar.mean <- with(Gibbs.out, apply(RSTAR[,,-burnin], c(1, 2), mean))
 pistar.mean <- with(Gibbs.out, apply(PISTAR[,-burnin], 1, mean))
