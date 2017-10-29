@@ -1,24 +1,5 @@
 #include <RcppArmadillo.h>
-// [[Rcpp::depends(RcppArmadillo)]]
-
-//' @title Generate Multinomial Random Variable
-//' @description Sample a multinomial random variable for given probabilities.
-//' @usage rmultinomial(ps)
-//' @param ps A `vector` for the probability of each category.
-//' @return A `vector` from a multinomial with probability ps.
-//' @author Steven Andrew Culpepper
-//' @export
-// [[Rcpp::export]]
-double rmultinomial(const arma::rowvec& ps){
-  unsigned int C = ps.n_elem;
-  double u = R::runif(0,1);
-  arma::rowvec cps = cumsum(ps);
-  arma::rowvec Ips = arma::zeros<arma::rowvec>(C);
-  
-  Ips.elem(arma::find(cps < u) ).fill(1.0);
-  
-  return sum(Ips);
-}
+#include <rgen.h>
 
 // [[Rcpp::export]]
 arma::vec bijectionvectorcpp(unsigned int K) {
@@ -29,24 +10,6 @@ arma::vec bijectionvectorcpp(unsigned int K) {
   return vv;
 }
 
-//' @title Generate Dirichlet Random Variable
-//' @description Sample a Dirichlet random variable.
-//' @usage rDirichlet(deltas)
-//' @param deltas A `vector` of Dirichlet parameters.
-//' @return A `vector` from a Dirichlet.
-//' @author Steven Andrew Culpepper
-//' @export
-// [[Rcpp::export]]
-arma::vec rDirichlet(const arma::vec& deltas){
-  unsigned int C = deltas.n_elem;
-  arma::vec Xgamma(C);
-
-  //generating gamma(deltac,1)
-  for(unsigned int c=0;c<C;c++){
-    Xgamma(c) = R::rgamma(deltas(c),1.0);
-  }
-  return Xgamma/sum(Xgamma);
-}
 
 //' @title Generate data from the rRUM
 //' @description Randomly generate response data according to the reduced Reparametrized Unified Model (rRUM).
@@ -154,7 +117,7 @@ Rcpp::List parm_updatecpp(unsigned int N,unsigned int J,unsigned int K,unsigned 
   //update pi
   arma::vec a_bijection = alpha * vv;
   arma::uvec deltatilde = arma::hist( a_bijection,arma::linspace<arma::vec>(0,C-1,C) );
-  pi = rDirichlet(deltatilde+delta0);
+  pi = rgen::rdirichlet(deltatilde+delta0);
 
   //update Smat and Gmat
   arma::vec pistar = arma::zeros<arma::vec>(J);
@@ -248,7 +211,7 @@ Rcpp::List rRUM_Gibbscpp(const arma::mat& Y,const arma::mat& Q, const arma::vec&
   arma::cube X = arma::zeros<arma::cube>(N,J,K);
   arma::mat ss = arma::randu<arma::mat>(J,K);
   arma::mat gs = (arma::ones<arma::mat>(J,K) - ss)%arma::randu<arma::mat>(J,K);
-  arma::vec pis = rDirichlet(delta0);
+  arma::vec pis = rgen::rdirichlet(delta0);
 
   //Start Markov chain
   for(unsigned int t = 0; t < chain_length; t++){

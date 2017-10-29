@@ -6,17 +6,6 @@
 
 using namespace Rcpp;
 
-// rmultinomial
-double rmultinomial(const arma::rowvec& ps);
-RcppExport SEXP _rrum_rmultinomial(SEXP psSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::rowvec& >::type ps(psSEXP);
-    rcpp_result_gen = Rcpp::wrap(rmultinomial(ps));
-    return rcpp_result_gen;
-END_RCPP
-}
 // bijectionvectorcpp
 arma::vec bijectionvectorcpp(unsigned int K);
 RcppExport SEXP _rrum_bijectionvectorcpp(SEXP KSEXP) {
@@ -25,17 +14,6 @@ BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< unsigned int >::type K(KSEXP);
     rcpp_result_gen = Rcpp::wrap(bijectionvectorcpp(K));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rDirichlet
-arma::vec rDirichlet(const arma::vec& deltas);
-RcppExport SEXP _rrum_rDirichlet(SEXP deltasSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::vec& >::type deltas(deltasSEXP);
-    rcpp_result_gen = Rcpp::wrap(rDirichlet(deltas));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -74,9 +52,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_rrum_rmultinomial", (DL_FUNC) &_rrum_rmultinomial, 1},
     {"_rrum_bijectionvectorcpp", (DL_FUNC) &_rrum_bijectionvectorcpp, 1},
-    {"_rrum_rDirichlet", (DL_FUNC) &_rrum_rDirichlet, 1},
     {"_rrum_simrRUMcpp", (DL_FUNC) &_rrum_simrRUMcpp, 5},
     {"_rrum_rRUM_Gibbscpp", (DL_FUNC) &_rrum_rRUM_Gibbscpp, 8},
     {NULL, NULL, 0}

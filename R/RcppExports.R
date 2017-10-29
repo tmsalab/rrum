@@ -4,31 +4,10 @@
 #' @keywords internal
 NULL
 
-#' @title Generate Multinomial Random Variable
-#' @description Sample a multinomial random variable for given probabilities.
-#' @usage rmultinomial(ps)
-#' @param ps A `vector` for the probability of each category.
-#' @return A `vector` from a multinomial with probability ps.
-#' @author Steven Andrew Culpepper
-#' @export
-rmultinomial <- function(ps) {
-    .Call(`_rrum_rmultinomial`, ps)
-}
-
 bijectionvectorcpp <- function(K) {
     .Call(`_rrum_bijectionvectorcpp`, K)
 }
 
-#' @title Generate Dirichlet Random Variable
-#' @description Sample a Dirichlet random variable.
-#' @usage rDirichlet(deltas)
-#' @param deltas A `vector` of Dirichlet parameters.
-#' @return A `vector` from a Dirichlet.
-#' @author Steven Andrew Culpepper
-#' @export
-rDirichlet <- function(deltas) {
-    .Call(`_rrum_rDirichlet`, deltas)
-}
 
 #' @title Generate data from the rRUM
 #' @description Randomly generate response data according to the reduced Reparametrized Unified Model (rRUM).

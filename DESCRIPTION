@@ -10,7 +10,7 @@ Description: Implementation of Gibbs sampling algorithm for Bayesian Estimation
     Hudson (2017) <doi: 10.1177/0146621617707511>.
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.12)
-LinkingTo: Rcpp, RcppArmadillo
+LinkingTo: Rcpp, RcppArmadillo, rgen
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
 Suggests: knitr,
