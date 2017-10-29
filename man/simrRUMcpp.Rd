@@ -7,21 +7,41 @@
 simrRUMcpp(N, Q, rstar, pistar, alpha)
 }
 \arguments{
-\item{N}{A \code{numeric} indicating the number of observations for whom response data should be generated.}
+\item{N}{A \code{numeric} indicating the number of observations for whom
+response data should be generated.}
 
-\item{Q}{A \code{matrix} with J rows and K columns indicating which attributes are required to answer each of the items, where J represents the number of items and K the number of attributes.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.}
+\item{Q}{A \code{matrix} with \eqn{J} rows and \eqn{K} columns indicating
+which attributes are required to answer each of the items,
+where \eqn{J} represents the number of items and \eqn{K} the
+number of attributes.  An entry of 1 indicates attribute
+\eqn{k} is required to answer item \eqn{j}.  An entry of one
+indicates attribute \eqn{k} is not required.}
 
-\item{rstar}{A \code{matrix} a matrix with J rows and K columns indicating the penalties for failing to have each of the required attributes, where J represents the number of items and K the number of attributes.  rstar and Q must share the same 0 entries.}
+\item{rstar}{A \code{matrix} a matrix with \eqn{J} rows and \eqn{K} columns
+indicating the penalties for failing to have each of the
+required attributes, where \eqn{J} represents the number of items
+and \eqn{K} the number of attributes.
+\code{rstar} and \code{Q} must share the same 0 entries.}
 
-\item{pistar}{A \code{vector} of length J indicating the probabiliies of answering each item correctly for individuals who do not lack any required attribute, where J represents the number of items.}
+\item{pistar}{A \code{vector} of length \eqn{J} indicating the probabiliies of
+answering each item correctly for individuals who do not lack
+any required attribute, where \eqn{J} represents the number
+of items.}
 
-\item{alpha}{A \code{matrix} with N rows and K columns indicating the subjects attribute acquisition, where K represents the number of attributes.  An entry of 1 indicates individual i has attained attribute k.  An entry of 0 indicates the attribute has not been attained.}
+\item{alpha}{A \code{matrix} with \eqn{N} rows and \eqn{K} columns indicating
+the subjects attribute acquisition, where \eqn{K} represents the
+number of attributes.  An entry of 1 indicates individual
+\eqn{i} has attained attribute \eqn{k}. An entry of 0
+indicates the attribute has not been attained.}
 }
 \value{
-Y A \code{matrix} with N rows and J columns indicating the indviduals' responses to each of the items, where J represents the number of items.
+Y     A \code{matrix} with \eqn{N} rows and \eqn{J} columns indicating the
+indviduals' responses to each of the items, where \eqn{J}
+represents the number of items.
 }
 \description{
-Randomly generate response data according to the reduced Reparametrized Unified Model (rRUM).
+Randomly generate response data according to the
+reduced Reparametrized Unified Model (rRUM).
 }
 \examples{
 \dontrun{

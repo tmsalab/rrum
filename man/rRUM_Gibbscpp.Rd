@@ -8,30 +8,44 @@ rRUM_Gibbscpp(Y, Q, delta0, chain_length = 10000L, as = 1, bs = 1,
   ag = 1, bg = 1)
 }
 \arguments{
-\item{Y}{A \code{matrix} with N rows and J columns indicating the indviduals' responses to each of the items.}
+\item{Y}{A \code{matrix} with \eqn{N} rows and \eqn{J} columns indicating the
+indviduals' responses to each of the items.}
 
-\item{Q}{A \code{matrix} with J rows and K columns indicating which attributes are required to answer each of the items.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.}
+\item{Q}{A \code{matrix} with \eqn{J} rows and \eqn{K} columns indicating which
+attributes are required to answer each of the items.
+An entry of 1 indicates attribute \eqn{k} is required to
+answer item \eqn{j}. An entry of one indicates
+attribute \eqn{k} is not required.}
 
-\item{chain_length}{A \code{numeric} indicating the number of iterations of Gibbs sampler to be run.  Default is set to 10000.}
+\item{chain_length}{A \code{numeric} indicating the number of iterations of
+Gibbs sampler to be run.  Default is set to 10000.}
 
-\item{as}{A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage higher values of pistar and lower values of rstar.}
+\item{as}{A \code{numeric}, parameter for the prior distribution of
+\code{pistar}.  High values as encourage higher values of
+\code{pistar} and lower values of \code{rstar}.}
 
-\item{bs}{A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage lower values of pistar and higher values of rstar.}
+\item{bs}{A \code{numeric}, parameter for the prior distribution of
+\code{pistar}.  High values as encourage lower values of
+\code{pistar} and higher values of \code{rstar}.}
 
-\item{ag}{A \code{numeric}, parameter for the prior distribution of rstar.  High values as encourage higher values of rstar.}
+\item{ag}{A \code{numeric}, parameter for the prior distribution of
+\code{rstar}.  High values as encourage higher values of
+\code{rstar}.}
 
-\item{bg}{A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage lower values of rstar.}
+\item{bg}{A \code{numeric}, parameter for the prior distribution of
+\code{pistar}.  High values as encourage lower values of
+\code{rstar}.}
 
-\item{deltas}{\code{vector}, parameters for the Dirichlet prior on pi.}
+\item{deltas}{A \code{vector}, parameters for the Dirichlet prior on \code{pi}.}
 }
 \value{
-PISTAR A \code{matrix} where each column represents one draw from the posterior distribution of pistar.
-
-RSTAR A J x K x chain_length \code{array} where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
-
-PI \code{matrix} where each column reperesents one draw from the posterior distribution of pi.
-
-ALPHA An N x K x chain_length \code{array} where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
+A \code{List}
+\itemize{
+\item \code{PISTAR} A \code{matrix} where each column represents one draw from the posterior distribution of pistar.
+\item \code{RSTAR} A \eqn{J x K x chain_length} \code{array} where \code{J} reperesents the number of items, and \code{K} represents the number of attributes. Each slice represents one draw from the posterior distribution of \code{rstar}.
+\item \code{PI} \code{matrix} where each column reperesents one draw from the posterior distribution of \code{pi}.
+\item \code{ALPHA} An \eqn{N x K x chain_length} \code{array} where \code{N} reperesents the number of individuals, and \code{K} represents the number of attributes. Each slice represents one draw from the posterior distribution of \code{alpha}.
+}
 }
 \description{
 Obtains samples from posterior distributon for the reduced Reparametrized Unified Model (rRUM).

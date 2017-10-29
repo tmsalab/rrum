@@ -10,15 +10,37 @@ arma::vec bijectionvectorcpp(unsigned int K) {
   return vv;
 }
 
-
-//' @title Generate data from the rRUM
-//' @description Randomly generate response data according to the reduced Reparametrized Unified Model (rRUM).
-//' @param N A `numeric` indicating the number of observations for whom response data should be generated.
-//' @param Q A `matrix` with J rows and K columns indicating which attributes are required to answer each of the items, where J represents the number of items and K the number of attributes.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
-//' @param rstar A `matrix` a matrix with J rows and K columns indicating the penalties for failing to have each of the required attributes, where J represents the number of items and K the number of attributes.  rstar and Q must share the same 0 entries.
-//' @param pistar A `vector` of length J indicating the probabiliies of answering each item correctly for individuals who do not lack any required attribute, where J represents the number of items.
-//' @param alpha A `matrix` with N rows and K columns indicating the subjects attribute acquisition, where K represents the number of attributes.  An entry of 1 indicates individual i has attained attribute k.  An entry of 0 indicates the attribute has not been attained.
-//' @return Y A `matrix` with N rows and J columns indicating the indviduals' responses to each of the items, where J represents the number of items.
+//' Generate data from the rRUM
+//' 
+//' Randomly generate response data according to the
+//' reduced Reparametrized Unified Model (rRUM).
+//' 
+//' @param N      A `numeric` indicating the number of observations for whom
+//'               response data should be generated.
+//' @param Q      A `matrix` with \eqn{J} rows and \eqn{K} columns indicating
+//'               which attributes are required to answer each of the items,
+//'               where \eqn{J} represents the number of items and \eqn{K} the
+//'               number of attributes.  An entry of 1 indicates attribute
+//'               \eqn{k} is required to answer item \eqn{j}.  An entry of one
+//'               indicates attribute \eqn{k} is not required.
+//' @param rstar  A `matrix` a matrix with \eqn{J} rows and \eqn{K} columns 
+//'               indicating the penalties for failing to have each of the
+//'               required attributes, where \eqn{J} represents the number of items 
+//'               and \eqn{K} the number of attributes. 
+//'               `rstar` and `Q` must share the same 0 entries.
+//' @param pistar A `vector` of length \eqn{J} indicating the probabiliies of
+//'               answering each item correctly for individuals who do not lack
+//'               any required attribute, where \eqn{J} represents the number
+//'                of items.
+//' @param alpha  A `matrix` with \eqn{N} rows and \eqn{K} columns indicating
+//'               the subjects attribute acquisition, where \eqn{K} represents the
+//'               number of attributes.  An entry of 1 indicates individual
+//'               \eqn{i} has attained attribute \eqn{k}. An entry of 0
+//'               indicates the attribute has not been attained.
+//'               
+//' @return Y     A `matrix` with \eqn{N} rows and \eqn{J} columns indicating the
+//'               indviduals' responses to each of the items, where \eqn{J}
+//'               represents the number of items.
 //' @author Steven Andrew Culpepper
 //' @template rrum-example
 //' @keywords internal
@@ -168,26 +190,46 @@ Rcpp::List parm_updatecpp(unsigned int N,unsigned int J,unsigned int K,unsigned 
 }
 
 
-//' @title Gibbs sampler to estimate the rRUM
-//' @description Obtains samples from posterior distributon for the reduced Reparametrized Unified Model (rRUM).
-//' @param Y A `matrix` with N rows and J columns indicating the indviduals' responses to each of the items.
-//' @param Q A `matrix` with J rows and K columns indicating which attributes are required to answer each of the items.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
-//' @param chain_length A `numeric` indicating the number of iterations of Gibbs sampler to be run.  Default is set to 10000.
-//' @param as A `numeric`, parameter for the prior distribution of pistar.  High values as encourage higher values of pistar and lower values of rstar.
-//' @param bs A `numeric`, parameter for the prior distribution of pistar.  High values as encourage lower values of pistar and higher values of rstar.
-//' @param ag A `numeric`, parameter for the prior distribution of rstar.  High values as encourage higher values of rstar.
-//' @param bg A `numeric`, parameter for the prior distribution of pistar.  High values as encourage lower values of rstar.
-//' @param deltas `vector`, parameters for the Dirichlet prior on pi.
+//' Gibbs sampler to estimate the rRUM
+//' 
+//' Obtains samples from posterior distributon for the reduced Reparametrized Unified Model (rRUM).
+//' 
+//' @param Y            A `matrix` with \eqn{N} rows and \eqn{J} columns indicating the 
+//'                     indviduals' responses to each of the items.
+//' @param Q            A `matrix` with \eqn{J} rows and \eqn{K} columns indicating which
+//'                     attributes are required to answer each of the items.
+//'                     An entry of 1 indicates attribute \eqn{k} is required to
+//'                     answer item \eqn{j}. An entry of one indicates 
+//'                     attribute \eqn{k} is not required.
+//' @param chain_length A `numeric` indicating the number of iterations of 
+//'                     Gibbs sampler to be run.  Default is set to 10000.
+//' @param as           A `numeric`, parameter for the prior distribution of
+//'                     `pistar`.  High values as encourage higher values of
+//'                     `pistar` and lower values of `rstar`.
+//' @param bs           A `numeric`, parameter for the prior distribution of
+//'                     `pistar`.  High values as encourage lower values of
+//'                     `pistar` and higher values of `rstar`.
+//' @param ag           A `numeric`, parameter for the prior distribution of
+//'                     `rstar`.  High values as encourage higher values of
+//'                     `rstar`.
+//' @param bg           A `numeric`, parameter for the prior distribution of
+//'                     `pistar`.  High values as encourage lower values of
+//'                     `rstar`.
+//' @param deltas       A `vector`, parameters for the Dirichlet prior on `pi`.
+//' 
 //' @return A `List`
-//' - PISTAR A `matrix` where each column represents one draw from the posterior distribution of pistar.
-//' - RSTAR A J x K x chain_length `array` where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
-//' - PI `matrix` where each column reperesents one draw from the posterior distribution of pi.
-//' - ALPHA An N x K x chain_length `array` where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
+//' 
+//' - `PISTAR` A `matrix` where each column represents one draw from the posterior distribution of pistar.
+//' - `RSTAR` A \eqn{J x K x chain_length} `array` where `J` reperesents the number of items, and `K` represents the number of attributes. Each slice represents one draw from the posterior distribution of `rstar`.
+//' - `PI` `matrix` where each column reperesents one draw from the posterior distribution of `pi`.
+//' - `ALPHA` An \eqn{N x K x chain_length} `array` where `N` reperesents the number of individuals, and `K` represents the number of attributes. Each slice represents one draw from the posterior distribution of `alpha`.
+//' 
 //' @author Steven Andrew Culpepper, Aaron Hudson
 //' @keywords internal
 // [[Rcpp::export]]
-Rcpp::List rRUM_Gibbscpp(const arma::mat& Y,const arma::mat& Q, const arma::vec& delta0, unsigned int chain_length=10000,
-                      double as = 1, double bs = 1, double ag = 1, double bg = 1){
+Rcpp::List rRUM_Gibbscpp(const arma::mat& Y,const arma::mat& Q, 
+                         const arma::vec& delta0, unsigned int chain_length = 10000,
+                         double as = 1, double bs = 1, double ag = 1, double bg = 1){
   unsigned int N = Y.n_rows;
   unsigned int J = Y.n_cols;
   unsigned int K = Q.n_cols;
