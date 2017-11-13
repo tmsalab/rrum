@@ -9,10 +9,10 @@ bijectionvectorcpp <- function(K) {
 }
 
 #' Generate data from the rRUM
-#' 
+#'
 #' Randomly generate response data according to the
 #' reduced Reparametrized Unified Model (rRUM).
-#' 
+#'
 #' @param N      A `numeric` indicating the number of observations for whom
 #'               response data should be generated.
 #' @param Q      A `matrix` with \eqn{J} rows and \eqn{K} columns indicating
@@ -21,23 +21,23 @@ bijectionvectorcpp <- function(K) {
 #'               number of attributes.  An entry of 1 indicates attribute
 #'               \eqn{k} is required to answer item \eqn{j}.  An entry of one
 #'               indicates attribute \eqn{k} is not required.
-#' @param rstar  A `matrix` a matrix with \eqn{J} rows and \eqn{K} columns 
+#' @param rstar  A `matrix` a matrix with \eqn{J} rows and \eqn{K} columns
 #'               indicating the penalties for failing to have each of the
-#'               required attributes, where \eqn{J} represents the number of items 
-#'               and \eqn{K} the number of attributes. 
-#'               `rstar` and `Q` must share the same 0 entries.
+#'               required attributes, where \eqn{J} represents the number of
+#'               items and \eqn{K} the number of attributes. `rstar` and `Q`
+#'               must share the same 0 entries.
 #' @param pistar A `vector` of length \eqn{J} indicating the probabiliies of
 #'               answering each item correctly for individuals who do not lack
 #'               any required attribute, where \eqn{J} represents the number
-#'                of items.
+#'               of items.
 #' @param alpha  A `matrix` with \eqn{N} rows and \eqn{K} columns indicating
-#'               the subjects attribute acquisition, where \eqn{K} represents the
-#'               number of attributes.  An entry of 1 indicates individual
+#'               the subjects attribute acquisition, where \eqn{K} represents
+#'               the number of attributes.  An entry of 1 indicates individual
 #'               \eqn{i} has attained attribute \eqn{k}. An entry of 0
 #'               indicates the attribute has not been attained.
-#'               
-#' @return Y     A `matrix` with \eqn{N} rows and \eqn{J} columns indicating the
-#'               indviduals' responses to each of the items, where \eqn{J}
+#'
+#' @return Y     A `matrix` with \eqn{N} rows and \eqn{J} columns indicating
+#'               the indviduals' responses to each of the items, where \eqn{J}
 #'               represents the number of items.
 #' @author Steven Andrew Culpepper
 #' @template rrum-example
@@ -47,17 +47,19 @@ simrRUMcpp <- function(N, Q, rstar, pistar, alpha) {
 }
 
 #' Gibbs sampler to estimate the rRUM
-#' 
-#' Obtains samples from posterior distributon for the reduced Reparametrized Unified Model (rRUM).
-#' 
-#' @param Y            A `matrix` with \eqn{N} rows and \eqn{J} columns indicating the 
-#'                     indviduals' responses to each of the items.
-#' @param Q            A `matrix` with \eqn{J} rows and \eqn{K} columns indicating which
-#'                     attributes are required to answer each of the items.
-#'                     An entry of 1 indicates attribute \eqn{k} is required to
-#'                     answer item \eqn{j}. An entry of one indicates 
-#'                     attribute \eqn{k} is not required.
-#' @param chain_length A `numeric` indicating the number of iterations of 
+#'
+#' Obtains samples from posterior distributon for the reduced Reparametrized
+#' Unified Model (rRUM).
+#'
+#' @param Y            A `matrix` with \eqn{N} rows and \eqn{J} columns
+#'                     indicating the indviduals' responses to each of the
+#'                     items.
+#' @param Q            A `matrix` with \eqn{J} rows and \eqn{K} columns
+#'                     indicating which attributes are required to answer each
+#'                     of the items.An entry of 1 indicates attribute \eqn{k}
+#'                     is required to answer item \eqn{j}. An entry of one
+#'                     indicates attribute \eqn{k} is not required.
+#' @param chain_length A `numeric` indicating the number of iterations of
 #'                     Gibbs sampler to be run.  Default is set to 10000.
 #' @param as           A `numeric`, parameter for the prior distribution of
 #'                     `pistar`.  High values as encourage higher values of
@@ -72,14 +74,21 @@ simrRUMcpp <- function(N, Q, rstar, pistar, alpha) {
 #'                     `pistar`.  High values as encourage lower values of
 #'                     `rstar`.
 #' @param deltas       A `vector`, parameters for the Dirichlet prior on `pi`.
-#' 
+#'
 #' @return A `List`
-#' 
-#' - `PISTAR` A `matrix` where each column represents one draw from the posterior distribution of pistar.
-#' - `RSTAR` A \eqn{J x K x chain_length} `array` where `J` reperesents the number of items, and `K` represents the number of attributes. Each slice represents one draw from the posterior distribution of `rstar`.
-#' - `PI` `matrix` where each column reperesents one draw from the posterior distribution of `pi`.
-#' - `ALPHA` An \eqn{N x K x chain_length} `array` where `N` reperesents the number of individuals, and `K` represents the number of attributes. Each slice represents one draw from the posterior distribution of `alpha`.
-#' 
+#'
+#' - `PISTAR` A `matrix` where each column represents one draw from the
+#'            posterior distribution of pistar.
+#' - `RSTAR` A \eqn{J x K x chain_length} `array` where `J` reperesents the
+#'           number of items, and `K` represents the number of attributes.
+#'           Each slice represents one draw from the posterior distribution
+#'           of `rstar`.
+#' - `PI` `matrix` where each column reperesents one draw from the posterior
+#'        distribution of `pi`.
+#' - `ALPHA` An \eqn{N x K x chain_length} `array` where `N` reperesents the
+#'           number of individuals, and `K` represents the number of
+#'           attributes. Each slice represents one draw from the posterior
+#'           distribution of `alpha`.
 #' @author Steven Andrew Culpepper, Aaron Hudson
 #' @keywords internal
 rRUM_Gibbscpp <- function(Y, Q, delta0, chain_length = 10000L, as = 1, bs = 1, ag = 1, bg = 1) {

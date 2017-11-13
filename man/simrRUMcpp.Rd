@@ -19,9 +19,9 @@ indicates attribute \eqn{k} is not required.}
 
 \item{rstar}{A \code{matrix} a matrix with \eqn{J} rows and \eqn{K} columns
 indicating the penalties for failing to have each of the
-required attributes, where \eqn{J} represents the number of items
-and \eqn{K} the number of attributes.
-\code{rstar} and \code{Q} must share the same 0 entries.}
+required attributes, where \eqn{J} represents the number of
+items and \eqn{K} the number of attributes. \code{rstar} and \code{Q}
+must share the same 0 entries.}
 
 \item{pistar}{A \code{vector} of length \eqn{J} indicating the probabiliies of
 answering each item correctly for individuals who do not lack
@@ -29,14 +29,14 @@ any required attribute, where \eqn{J} represents the number
 of items.}
 
 \item{alpha}{A \code{matrix} with \eqn{N} rows and \eqn{K} columns indicating
-the subjects attribute acquisition, where \eqn{K} represents the
-number of attributes.  An entry of 1 indicates individual
+the subjects attribute acquisition, where \eqn{K} represents
+the number of attributes.  An entry of 1 indicates individual
 \eqn{i} has attained attribute \eqn{k}. An entry of 0
 indicates the attribute has not been attained.}
 }
 \value{
-Y     A \code{matrix} with \eqn{N} rows and \eqn{J} columns indicating the
-indviduals' responses to each of the items, where \eqn{J}
+Y     A \code{matrix} with \eqn{N} rows and \eqn{J} columns indicating
+the indviduals' responses to each of the items, where \eqn{J}
 represents the number of items.
 }
 \description{
