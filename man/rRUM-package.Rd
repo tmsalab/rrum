@@ -25,10 +25,11 @@ annual International Meeting of the Psychometric Society, Asheville, North
 Carolina.
 }
 \author{
-\strong{Maintainer}: Steven Culpepper \email{sculpepp@illinois.edu} [copyright holder]
+\strong{Maintainer}: James Balamuta \email{balamut2@illinois.edu}
 
 Authors:
 \itemize{
+  \item Steven Culpepper \email{sculpepp@illinois.edu} [copyright holder]
   \item Aaron Hudson \email{awhudson@uw.edu} [copyright holder]
 }
 

@@ -3,8 +3,9 @@ Type: Package
 Title: Bayesian Estimation of reduced Reparametrized Unified Model
         (rRUM) with Gibbs Sampling
 Version: 1.0.1
-Authors@R: c(person("Steven", "Culpepper", email = "sculpepp@illinois.edu", role = c("aut", "cre", "cph")),
-           person("Aaron", "Hudson", email = "awhudson@uw.edu", role = c("aut", "cph")))
+Authors@R: c(person("Steven", "Culpepper", email = "sculpepp@illinois.edu", role = c("aut", "cph")),
+           person("Aaron", "Hudson", email = "awhudson@uw.edu", role = c("aut", "cph")),
+           person("James", "Balamuta", email = "balamut2@illinois.edu", role = c("aut", "cre")))
 Description: Implementation of Gibbs sampling algorithm for Bayesian Estimation
     of reduced Reparametrized Unifed Model (rRUM), described by Culpepper and
     Hudson (2017) <doi: 10.1177/0146621617707511>.
