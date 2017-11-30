@@ -2,11 +2,11 @@
 #include <rgen.h>
 
 // [[Rcpp::export]]
-arma::vec bijectionvectorcpp(unsigned int K)
+arma::vec bijectionvector(unsigned int K)
 {
     arma::vec vv(K);
-    for (unsigned int k = 0; k < K; k++) {
-        vv(k) = pow(2, K - k - 1);
+    for (unsigned int i = 0; i < K; ++i) {
+        vv(i) = pow(2, K - i - 1);
     }
     return vv;
 }
