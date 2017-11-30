@@ -11,12 +11,12 @@ arma::vec bijectionvector(unsigned int K)
     return vv;
 }
 
-arma::field<arma::mat> parm_updatecpp(unsigned int N, unsigned int J, unsigned int K,
-                          unsigned int C, const arma::mat Y, const arma::mat &Q,
-                          arma::mat &alpha, arma::cube &X, arma::mat &Smat,
-                          arma::mat &Gmat, arma::vec &pi, const arma::vec vv,
-                          const arma::vec &delta0, double as = 1, double bs = 1,
-                          double ag = 1, double bg = 1)
+arma::field<arma::mat>
+parm_updatecpp(unsigned int N, unsigned int J, unsigned int K, unsigned int C,
+               const arma::mat Y, const arma::mat &Q, arma::mat &alpha,
+               arma::cube &X, arma::mat &Smat, arma::mat &Gmat, arma::vec &pi,
+               const arma::vec vv, const arma::vec &delta0, double as = 1,
+               double bs = 1, double ag = 1, double bg = 1)
 {
 
     arma::vec k_index = arma::linspace(0, K - 1, K);
@@ -125,61 +125,59 @@ arma::field<arma::mat> parm_updatecpp(unsigned int N, unsigned int J, unsigned i
 
     arma::field<arma::mat> out(4);
     out(0) = pistar, out(1) = rstar, out(2) = pi, out(3) = alpha;
-    
+
     return out;
 }
 
-
 Rcpp::List rrum_main(const arma::mat &Y, const arma::mat &Q,
-                     const arma::vec &delta0,
-                     unsigned int chain_length = 10000, double as = 1,
-                     double bs = 1, double ag = 1, double bg = 1) { 
-  
-  unsigned int N = Y.n_rows;
-  unsigned int J = Y.n_cols;
-  unsigned int K = Q.n_cols;
-  unsigned int C = pow(2, K);
-  
-  arma::vec vv = bijectionvector(K);
-  
-  // Prior values for betas and Dirichlet distribution
-  // arma::vec delta0 = arma::ones<arma::vec>(C);
-  
-  // Savinging output
-  arma::mat PISTAR(J, chain_length);
-  arma::cube RSTAR(J, K, chain_length);
-  arma::mat PIs(C, chain_length);
-  arma::cube ALPHAS(N, K, chain_length);
-  
-  // need to initialize, alphas, X,ss, gs,pis
-  arma::mat alpha = arma::randu<arma::mat>(N, K); // K>1 is assumed
-  alpha.elem(find(alpha > 0.5)).ones();
-  alpha.elem(find(alpha <= 0.5)).zeros();
-  arma::cube X = arma::zeros<arma::cube>(N, J, K);
-  arma::mat ss = arma::randu<arma::mat>(J, K);
-  arma::mat gs =
-    (arma::ones<arma::mat>(J, K) - ss) % arma::randu<arma::mat>(J, K);
-  arma::vec pis = rgen::rdirichlet(delta0);
-  
-  // Start Markov chain
-  for (unsigned int t = 0; t < chain_length; ++t) {
-    // updata X,alpha,pi,s,g,pistar,rstar
-    arma::field<arma::mat> output =
-      parm_updatecpp(N, J, K, C, Y, Q, alpha, X, ss, gs, pis, vv, delta0);
-    
-    // update value for pis. alphas are updated via pointer. save classes
-    // and PIs
-    PISTAR.col(t) = output(0);
-    RSTAR.slice(t) = output(1);
-    PIs.col(t) = output(2);
-    ALPHAS.slice(t) = output(3);
-  }
-  
-  return Rcpp::List::create(
-    Rcpp::Named("PISTAR", PISTAR), Rcpp::Named("RSTAR", RSTAR),
-    Rcpp::Named("PI", PIs), Rcpp::Named("ALPHA", ALPHAS));
-}
+                     const arma::vec &delta0, unsigned int chain_length = 10000,
+                     double as = 1, double bs = 1, double ag = 1, double bg = 1)
+{
 
+    unsigned int N = Y.n_rows;
+    unsigned int J = Y.n_cols;
+    unsigned int K = Q.n_cols;
+    unsigned int C = pow(2, K);
+
+    arma::vec vv = bijectionvector(K);
+
+    // Prior values for betas and Dirichlet distribution
+    // arma::vec delta0 = arma::ones<arma::vec>(C);
+
+    // Savinging output
+    arma::mat PISTAR(J, chain_length);
+    arma::cube RSTAR(J, K, chain_length);
+    arma::mat PIs(C, chain_length);
+    arma::cube ALPHAS(N, K, chain_length);
+
+    // need to initialize, alphas, X,ss, gs,pis
+    arma::mat alpha = arma::randu<arma::mat>(N, K); // K>1 is assumed
+    alpha.elem(find(alpha > 0.5)).ones();
+    alpha.elem(find(alpha <= 0.5)).zeros();
+    arma::cube X = arma::zeros<arma::cube>(N, J, K);
+    arma::mat ss = arma::randu<arma::mat>(J, K);
+    arma::mat gs =
+        (arma::ones<arma::mat>(J, K) - ss) % arma::randu<arma::mat>(J, K);
+    arma::vec pis = rgen::rdirichlet(delta0);
+
+    // Start Markov chain
+    for (unsigned int t = 0; t < chain_length; ++t) {
+        // updata X,alpha,pi,s,g,pistar,rstar
+        arma::field<arma::mat> output =
+            parm_updatecpp(N, J, K, C, Y, Q, alpha, X, ss, gs, pis, vv, delta0);
+
+        // update value for pis. alphas are updated via pointer. save classes
+        // and PIs
+        PISTAR.col(t) = output(0);
+        RSTAR.slice(t) = output(1);
+        PIs.col(t) = output(2);
+        ALPHAS.slice(t) = output(3);
+    }
+
+    return Rcpp::List::create(
+        Rcpp::Named("PISTAR", PISTAR), Rcpp::Named("RSTAR", RSTAR),
+        Rcpp::Named("PI", PIs), Rcpp::Named("ALPHA", ALPHAS));
+}
 
 //' Gibbs sampler to estimate the rRUM
 //'
@@ -230,18 +228,18 @@ Rcpp::List rrum_main(const arma::mat &Y, const arma::mat &Q,
 //' @keywords internal
 // [[Rcpp::export]]
 Rcpp::List rrum_helper(const arma::mat &Y, const arma::mat &Q,
-                      const arma::vec &delta0,
-                      unsigned int chain_length = 10000, double as = 1,
-                      double bs = 1, double ag = 1, double bg = 1)
+                       const arma::vec &delta0,
+                       unsigned int chain_length = 10000, double as = 1,
+                       double bs = 1, double ag = 1, double bg = 1)
 {
-  
-  if(Q.n_rows != Y.n_cols) {
-    Rcpp::stop("Y must have as many rows as Q has columns");
-  }
-  if(delta0.n_elem != static_cast<int>(pow(2.0, static_cast<double>(Q.n_cols)))) {
-    Rcpp::stop("delta0 must be numeric of length 2 ^ ncol(Q)");
-  }
-  
-  return(rrum_main(Y, Q, delta0, chain_length, as, bs, ag, bg));
+
+    if (Q.n_rows != Y.n_cols) {
+        Rcpp::stop("Y must have as many rows as Q has columns");
+    }
+    if (delta0.n_elem !=
+        static_cast<int>(pow(2.0, static_cast<double>(Q.n_cols)))) {
+        Rcpp::stop("delta0 must be numeric of length 2 ^ ncol(Q)");
+    }
+
+    return (rrum_main(Y, Q, delta0, chain_length, as, bs, ag, bg));
 }
-  
