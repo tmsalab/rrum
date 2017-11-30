@@ -8,30 +8,52 @@ rrum(Y, Q, chain_length = 10000L, as = 1, bs = 1, ag = 1, bg = 1,
   delta0 = rep(1, 2^ncol(Q)))
 }
 \arguments{
-\item{Y}{A \code{matrix} with N rows and J columns, where N reperesnts the number of individuals and J the number of items.  Y indicates the indviduals' responses to each of the items.}
+\item{Y}{A \code{matrix} with N rows and J columns, where N reperesnts
+the number of individuals and J the number of items.
+\code{Y} indicates the indviduals' responses to each of the
+items.}
 
-\item{Q}{A \code{matrix} with J rows and K columns indicating which attributes are required to answer each of the items.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.}
+\item{Q}{A \code{matrix} with J rows and K columns indicating which
+attributes are required to answer each of the items.
+An entry of 1 indicates attribute k is required to
+answer item j.  An entry of one indicates attribute \code{k}
+is not required.}
 
-\item{chain_length}{A \code{numeric} indicating the number of iterations of Gibbs sampler to be run.  Default is set to 10000.}
+\item{chain_length}{A \code{numeric} indicating the number of iterations of Gibbs
+sampler to be run.  Default is set to 10000.}
 
-\item{as}{A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage higher values of pistar and lower values of rstar.}
+\item{as}{A \code{numeric}, parameter for the prior distribution of
+pistar.  High values as encourage higher values of
+pistar and lower values of rstar.}
 
-\item{bs}{A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage lower values of pistar and higher values of rstar.}
+\item{bs}{A \code{numeric}, parameter for the prior distribution of
+pistar.  High values as encourage lower values of
+pistar and higher values of rstar.}
 
-\item{ag}{A \code{numeric}, parameter for the prior distribution of rstar.  High values as encourage higher values of rstar.}
+\item{ag}{A \code{numeric}, parameter for the prior distribution of
+rstar.  High values as encourage higher values of rstar.}
 
-\item{bg}{A \code{numeric}, parameter for the prior distribution of pistar.  High values as encourage lower values of rstar.}
+\item{bg}{A \code{numeric}, parameter for the prior distribution of
+pistar.  High values as encourage lower values of rstar.}
 
 \item{delta0}{A \code{vector}, parameters for the Dirichlet prior on pi.}
 }
 \value{
-PISTAR A \code{matrix} where each column represents one draw from the posterior distribution of pistar.
-
-RSTAR A J x K x chain_length \code{array} where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
-
-PI \code{matrix} where each column reperesents one draw from the posterior distribution of pi.
-
-ALPHA An N x K x chain_length \code{array} where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
+A \code{list} that contains
+\itemize{
+\item \code{PISTAR}: A \code{matrix} where each column represents one draw from the
+posterior distribution of pistar.
+\item \code{RSTAR}: A \eqn{J x K x chain_length} \code{array} where \code{J} reperesents the
+number of items, and \code{K} represents the number of attributes.
+Each slice represents one draw from the posterior distribution
+of \code{rstar}.
+\item \code{PI}: A \code{matrix} where each column reperesents one draw from the posterior
+distribution of \code{pi}.
+\item \code{ALPHA}: An \eqn{N x K x chain_length} \code{array} where \code{N} reperesents the
+number of individuals, and \code{K} represents the number of
+attributes. Each slice represents one draw from the posterior
+distribution of \code{alpha}.
+}
 }
 \description{
 Obtains samples from posterior distributon for the reduced Reparametrized
@@ -61,7 +83,7 @@ pistar <- rep(.9, J) # pistar
 rstar <- .5 * Q # rstar
 alpha <- As[sample(1:(K ^ 2), N, replace = TRUE, pis),]
 # Simulate data
-Y <- sim_rrum(Q, rstar, pistar, alpha)
+Y <- simcdm::sim_rrum(Q, rstar, pistar, alpha)
 # Recover simulation parameters with Gibbs Sampler
 Gibbs.out <- rrum(Y, Q)
 burnin <- 1:5000 # iterations to be discarded from chain as burnin

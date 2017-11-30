@@ -6,35 +6,20 @@
 
 using namespace Rcpp;
 
-// bijectionvectorcpp
-arma::vec bijectionvectorcpp(unsigned int K);
-RcppExport SEXP _rrum_bijectionvectorcpp(SEXP KSEXP) {
+// bijectionvector
+arma::vec bijectionvector(unsigned int K);
+RcppExport SEXP _rrum_bijectionvector(SEXP KSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< unsigned int >::type K(KSEXP);
-    rcpp_result_gen = Rcpp::wrap(bijectionvectorcpp(K));
+    rcpp_result_gen = Rcpp::wrap(bijectionvector(K));
     return rcpp_result_gen;
 END_RCPP
 }
-// simrRUMcpp
-arma::mat simrRUMcpp(unsigned int N, const arma::mat& Q, const arma::mat& rstar, const arma::vec& pistar, const arma::mat& alpha);
-RcppExport SEXP _rrum_simrRUMcpp(SEXP NSEXP, SEXP QSEXP, SEXP rstarSEXP, SEXP pistarSEXP, SEXP alphaSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< unsigned int >::type N(NSEXP);
-    Rcpp::traits::input_parameter< const arma::mat& >::type Q(QSEXP);
-    Rcpp::traits::input_parameter< const arma::mat& >::type rstar(rstarSEXP);
-    Rcpp::traits::input_parameter< const arma::vec& >::type pistar(pistarSEXP);
-    Rcpp::traits::input_parameter< const arma::mat& >::type alpha(alphaSEXP);
-    rcpp_result_gen = Rcpp::wrap(simrRUMcpp(N, Q, rstar, pistar, alpha));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rRUM_Gibbscpp
-Rcpp::List rRUM_Gibbscpp(const arma::mat& Y, const arma::mat& Q, const arma::vec& delta0, unsigned int chain_length, double as, double bs, double ag, double bg);
-RcppExport SEXP _rrum_rRUM_Gibbscpp(SEXP YSEXP, SEXP QSEXP, SEXP delta0SEXP, SEXP chain_lengthSEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
+// rrum_helper
+Rcpp::List rrum_helper(const arma::mat& Y, const arma::mat& Q, const arma::vec& delta0, unsigned int chain_length, double as, double bs, double ag, double bg);
+RcppExport SEXP _rrum_rrum_helper(SEXP YSEXP, SEXP QSEXP, SEXP delta0SEXP, SEXP chain_lengthSEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -46,15 +31,14 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type bs(bsSEXP);
     Rcpp::traits::input_parameter< double >::type ag(agSEXP);
     Rcpp::traits::input_parameter< double >::type bg(bgSEXP);
-    rcpp_result_gen = Rcpp::wrap(rRUM_Gibbscpp(Y, Q, delta0, chain_length, as, bs, ag, bg));
+    rcpp_result_gen = Rcpp::wrap(rrum_helper(Y, Q, delta0, chain_length, as, bs, ag, bg));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_rrum_bijectionvectorcpp", (DL_FUNC) &_rrum_bijectionvectorcpp, 1},
-    {"_rrum_simrRUMcpp", (DL_FUNC) &_rrum_simrRUMcpp, 5},
-    {"_rrum_rRUM_Gibbscpp", (DL_FUNC) &_rrum_rRUM_Gibbscpp, 8},
+    {"_rrum_bijectionvector", (DL_FUNC) &_rrum_bijectionvector, 1},
+    {"_rrum_rrum_helper", (DL_FUNC) &_rrum_rrum_helper, 8},
     {NULL, NULL, 0}
 };
 

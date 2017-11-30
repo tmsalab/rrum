@@ -1,72 +1,44 @@
-#' Generate data from the rRUM
-#' 
-#' Randomly generate response data according to the reduced Reparametrized
-#' Unified Model (rRUM).
-#' 
-#' @param Q       A `matrix` with J rows and K columns indicating which 
-#'                attributes are required to answer each of the items, where
-#'                J represents the number of items and K the number of
-#'                attributes.  An entry of 1 indicates attribute k is required
-#'                to answer item j.  An entry of one indicates attribute k
-#'                is not required.
-#' @param rstar   A `matrix` a matrix with J rows and K columns indicating the
-#'                penalties for failing to have each of the required attributes,
-#'                where J represents the number of items and K the number of
-#'                attributes.  rstar and Q must share the same 0 entries.
-#' @param pistar  A `vector` of length J indicating the probabiliies of
-#'                answering each item correctly for individuals who do not lack
-#'                any required attribute, where J represents the number of items.
-#' @param alpha   A `matrix` with N rows and K columns indicating the subjects
-#'                attribute acquisition, where N reperesnts the number of
-#'                individuals and K the number of attributes.  An entry of 1
-#'                indicates individual i has attained attribute k.  An entry of
-#'                0 indicates the attribute has not been attained.
-#' @return 
-#' A `matrix` with N rows and J columns indicating the indviduals' 
-#' responses to each of the items, where J represents the number of items.
-#' @author Steven Andrew Culpepper
-#' @export
-#' @template rrum-example
-#' @template rrum-references
-sim_rrum = function(Q, rstar, pistar, alpha) {
-  if(!all(dim(Q) == dim(rstar))) {
-    stop("Q and rstar must have the same dimensionaltiy")
-  }
-  Q0 = which(Q == 0)
-  rstar0 = which(rstar == 0)
-  if(!(all(rstar0 %in% Q0) & all(Q0 %in% rstar0))) {
-    stop("rstar and Q must have the same 0 entries")
-  }
-  if(length(pistar) != nrow(Q)) {
-    stop("length(pistar) must be equal to nrow(Q)")
-  }
-  if(ncol(alpha) != ncol(Q)) {
-    stop("alpha and Q must have the same number of columns")
-  }
-  if(!(all(rstar >= 0) & all(rstar <= 1) & all(pistar >= 0) & all(pistar <= 1))) {
-    stop("all entries of pistar and rstar must be bound between 0 and 1")
-  }
-  N = nrow(alpha)
-  simrRUMcpp(N, Q, rstar, pistar, alpha)
-}
-
 #' Gibbs sampler to estimate the rRUM
 #'
 #' Obtains samples from posterior distributon for the reduced Reparametrized
 #' Unified Model (rRUM).
 #' 
-#' @param Y A `matrix` with N rows and J columns, where N reperesnts the number of individuals and J the number of items.  Y indicates the indviduals' responses to each of the items.
-#' @param Q A `matrix` with J rows and K columns indicating which attributes are required to answer each of the items.  An entry of 1 indicates attribute k is required to answer item j.  An entry of one indicates attribute k is not required.
-#' @param chain_length A `numeric` indicating the number of iterations of Gibbs sampler to be run.  Default is set to 10000.
-#' @param as A `numeric`, parameter for the prior distribution of pistar.  High values as encourage higher values of pistar and lower values of rstar.
-#' @param bs A `numeric`, parameter for the prior distribution of pistar.  High values as encourage lower values of pistar and higher values of rstar.
-#' @param ag A `numeric`, parameter for the prior distribution of rstar.  High values as encourage higher values of rstar.
-#' @param bg A `numeric`, parameter for the prior distribution of pistar.  High values as encourage lower values of rstar.
-#' @param delta0 A `vector`, parameters for the Dirichlet prior on pi.
-#' @return PISTAR A `matrix` where each column represents one draw from the posterior distribution of pistar.
-#' @return RSTAR A J x K x chain_length `array` where J reperesents the number of items, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of rstar.
-#' @return PI `matrix` where each column reperesents one draw from the posterior distribution of pi.
-#' @return ALPHA An N x K x chain_length `array` where N reperesents the number of individuals, and K represents the number of attributes. Each slice represents one draw from the posterior distribution of alpha.
+#' @param Y            A `matrix` with N rows and J columns, where N reperesnts
+#'                     the number of individuals and J the number of items. 
+#'                     `Y` indicates the indviduals' responses to each of the
+#'                     items.
+#' @param Q            A `matrix` with J rows and K columns indicating which
+#'                     attributes are required to answer each of the items. 
+#'                     An entry of 1 indicates attribute k is required to
+#'                     answer item j.  An entry of one indicates attribute `k`
+#'                     is not required.
+#' @param chain_length A `numeric` indicating the number of iterations of Gibbs
+#'                     sampler to be run.  Default is set to 10000.
+#' @param as           A `numeric`, parameter for the prior distribution of
+#'                     pistar.  High values as encourage higher values of
+#'                     pistar and lower values of rstar.
+#' @param bs           A `numeric`, parameter for the prior distribution of
+#'                     pistar.  High values as encourage lower values of
+#'                     pistar and higher values of rstar.
+#' @param ag           A `numeric`, parameter for the prior distribution of
+#'                     rstar.  High values as encourage higher values of rstar.
+#' @param bg           A `numeric`, parameter for the prior distribution of
+#'                     pistar.  High values as encourage lower values of rstar.
+#' @param delta0       A `vector`, parameters for the Dirichlet prior on pi.
+#' @return A `list` that contains
+#' 
+#' - `PISTAR`: A `matrix` where each column represents one draw from the
+#'            posterior distribution of pistar.
+#' - `RSTAR`: A \eqn{J x K x chain_length} `array` where `J` reperesents the
+#'           number of items, and `K` represents the number of attributes.
+#'           Each slice represents one draw from the posterior distribution
+#'           of `rstar`.
+#' - `PI`: A `matrix` where each column reperesents one draw from the posterior
+#'        distribution of `pi`.
+#' - `ALPHA`: An \eqn{N x K x chain_length} `array` where `N` reperesents the
+#'           number of individuals, and `K` represents the number of
+#'           attributes. Each slice represents one draw from the posterior
+#'           distribution of `alpha`.
 #' @author Steven Andrew Culpepper, Aaron Hudson
 #' @export
 #' @template rrum-example
@@ -74,19 +46,12 @@ sim_rrum = function(Q, rstar, pistar, alpha) {
 rrum = function(Y, Q, chain_length = 10000L, 
                 as = 1, bs = 1, ag = 1, bg = 1, 
                 delta0 = rep(1, 2 ^ ncol(Q))) {
-  if(nrow(Q) != ncol(Y)) {
-    stop("Y must have as many rows as Q has columns")
-  }
+  
   if(length(as) != 1 | length(ag) != 1 | length(bs) != 1 | length(bg) != 1) {
     stop("as, ag, bs, and bg must all be numeric and of length 1")
   }
-  if(length(delta0) != 2 ^ ncol(Q)) {
-    stop("delta0 must be numeric of length 2 ^ ncol(Q)")
-  }
-  if(chain_length %% 1 != 0) {
-    stop("chain_length must be an integer")
-  }
-  rRUM_Gibbscpp(Y, Q, delta0, chain_length, as, bs, ag, bg)
+  
+  rrum_helper(Y, Q, delta0, chain_length, as, bs, ag, bg)
 }
 
 #' Mapping of Entries of Pi to Latent Attribute Classes
@@ -100,7 +65,7 @@ rrum = function(Y, Q, chain_length = 10000L,
 #' @template rrum-example
 #' @template rrum-references
 pi_reference = function(K) {
-  biject.vector = bijectionvectorcpp(K)
+  biject.vector = bijectionvector(K)
   As = as.matrix(expand.grid(rep(list(c(0,1)), K)))
   a = As%*%biject.vector
   As = As[a+1,]
