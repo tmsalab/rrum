@@ -22,7 +22,7 @@
 #' rstar <- .5 * Q # rstar
 #' alpha <- As[sample(1:(K ^ 2), N, replace = TRUE, pis),]
 #' # Simulate data
-#' Y <- sim_rrum(Q, rstar, pistar, alpha)
+#' Y <- simcdm::sim_rrum(Q, rstar, pistar, alpha)
 #' # Recover simulation parameters with Gibbs Sampler
 #' Gibbs.out <- rrum(Y, Q)
 #' burnin <- 1:5000 # iterations to be discarded from chain as burnin

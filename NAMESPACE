@@ -2,6 +2,6 @@
 
 export(pi_reference)
 export(rrum)
-export(sim_rrum)
 importFrom(Rcpp,evalCpp)
+importFrom(simcdm,sim_rrum)
 useDynLib(rrum, .registration=TRUE)

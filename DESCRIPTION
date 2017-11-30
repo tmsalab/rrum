@@ -9,7 +9,7 @@ Description: Implementation of Gibbs sampling algorithm for Bayesian Estimation
     of reduced Reparametrized Unifed Model (rRUM), described by Culpepper and
     Hudson (2017) <doi: 10.1177/0146621617707511>.
 License: GPL (>= 2)
-Imports: Rcpp (>= 0.12.12)
+Imports: Rcpp (>= 0.12.12), simcdm
 LinkingTo: Rcpp, RcppArmadillo, rgen
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
@@ -18,3 +18,4 @@ Suggests: knitr,
 VignetteBuilder: knitr
 SystemRequirements: C++11
 Encoding: UTF-8
+Remotes: tmsalab/simcdm

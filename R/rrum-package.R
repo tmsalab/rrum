@@ -1,5 +1,6 @@
 #' @useDynLib rrum, .registration=TRUE
 #' @importFrom Rcpp evalCpp
+#' @importFrom simcdm sim_rrum
 #' @details 
 #' Implemention of the reduced Reparametrized Unified Model
 #' @template rrum-references
