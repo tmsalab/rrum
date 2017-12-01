@@ -53,8 +53,3 @@ rrum = function(Y, Q, chain_length = 10000L,
   
   rrum_helper(Y, Q, delta0, chain_length, as, bs, ag, bg)
 }
-
-#' @inherit simcdm::pi_reference
-#' @importFrom simcdm pi_reference
-#' @export
-pi_reference = simcdm::pi_reference
