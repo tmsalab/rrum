@@ -52,3 +52,7 @@ rrum_helper <- function(Y, Q, delta0, chain_length = 10000L, as = 1, bs = 1, ag 
     .Call(`_rrum_rrum_helper`, Y, Q, delta0, chain_length, as, bs, ag, bg)
 }
 
+# Register entry points for exported C++ functions
+methods::setLoadAction(function(ns) {
+    .Call('_rrum_RcppExport_registerCCallable', PACKAGE = 'rrum')
+})

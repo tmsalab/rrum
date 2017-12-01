@@ -2,6 +2,8 @@
 #include <rgen.h>
 #include <simcdm.h>
 
+// [[Rcpp::interfaces(r, cpp)]]
+
 arma::field<arma::mat>
 parm_updatecpp(unsigned int N, unsigned int J, unsigned int K, unsigned int C,
                const arma::mat Y, const arma::mat &Q, arma::mat &alpha,
