@@ -1,15 +1,6 @@
 #include <RcppArmadillo.h>
 #include <rgen.h>
-
-// [[Rcpp::export]]
-arma::vec bijectionvector(unsigned int K)
-{
-    arma::vec vv(K);
-    for (unsigned int i = 0; i < K; ++i) {
-        vv(i) = pow(2, K - i - 1);
-    }
-    return vv;
-}
+#include <simcdm.h>
 
 arma::field<arma::mat>
 parm_updatecpp(unsigned int N, unsigned int J, unsigned int K, unsigned int C,
@@ -139,7 +130,7 @@ Rcpp::List rrum_main(const arma::mat &Y, const arma::mat &Q,
     unsigned int K = Q.n_cols;
     unsigned int C = pow(2, K);
 
-    arma::vec vv = bijectionvector(K);
+    arma::vec vv = simcdm::bijectionvector(K);
 
     // Prior values for betas and Dirichlet distribution
     // arma::vec delta0 = arma::ones<arma::vec>(C);

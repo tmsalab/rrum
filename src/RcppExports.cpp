@@ -6,17 +6,6 @@
 
 using namespace Rcpp;
 
-// bijectionvector
-arma::vec bijectionvector(unsigned int K);
-RcppExport SEXP _rrum_bijectionvector(SEXP KSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< unsigned int >::type K(KSEXP);
-    rcpp_result_gen = Rcpp::wrap(bijectionvector(K));
-    return rcpp_result_gen;
-END_RCPP
-}
 // rrum_helper
 Rcpp::List rrum_helper(const arma::mat& Y, const arma::mat& Q, const arma::vec& delta0, unsigned int chain_length, double as, double bs, double ag, double bg);
 RcppExport SEXP _rrum_rrum_helper(SEXP YSEXP, SEXP QSEXP, SEXP delta0SEXP, SEXP chain_lengthSEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
@@ -37,7 +26,6 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_rrum_bijectionvector", (DL_FUNC) &_rrum_bijectionvector, 1},
     {"_rrum_rrum_helper", (DL_FUNC) &_rrum_rrum_helper, 8},
     {NULL, NULL, 0}
 };
