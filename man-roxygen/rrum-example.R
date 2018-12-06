@@ -34,7 +34,7 @@
 #' alpha  = As[sample(1:(K ^ 2), N, replace = TRUE, pis),]
 #' 
 #' # Simulate data
-#' rrum_items = sim_rrum_items(Q, rstar, pistar, alpha)
+#' rrum_items = simcdm::sim_rrum_items(Q, rstar, pistar, alpha)
 #' 
 #' \dontrun{
 #' # Note: This portion of the code is computationally intensive.
