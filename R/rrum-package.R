@@ -1,6 +1,6 @@
 #' @useDynLib rrum, .registration=TRUE
 #' @importFrom Rcpp evalCpp
-#' @importFrom simcdm sim_rrum
+#' @importFrom simcdm sim_rrum_items
 #' @details 
 #' Implemention of the reduced Reparametrized Unified Model
 #' @template rrum-references
@@ -9,10 +9,10 @@
 
 ### Import from simcdm. Move to core package
 
-#' @inherit simcdm::pi_reference
-#' @importFrom simcdm pi_reference
+#' @inherit simcdm::sim_alpha_matrix
+#' @importFrom simcdm sim_alpha_matrix
 #' @export
-pi_reference = simcdm::pi_reference
+sim_alpha_matrix = simcdm::sim_alpha_matrix
 
 #' @inherit simcdm::bijectionvector
 #' @importFrom simcdm bijectionvector

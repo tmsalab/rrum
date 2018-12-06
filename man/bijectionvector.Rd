@@ -7,11 +7,14 @@
 bijectionvector(K)
 }
 \arguments{
-\item{K}{Number of Attributes}
+\item{K}{Number of Attributes.}
 }
 \value{
 A \code{vec} with length \eqn{K} detailing the power's of 2.
 }
 \description{
-Computes the powers of 2 from 0 up to K - 1.
+Computes the powers of 2 from \eqn{0} up to \eqn{K - 1}.
+}
+\examples{
+bijectionvector(3)
 }

@@ -12,7 +12,7 @@ Description: Implementation of Gibbs sampling algorithm for Bayesian Estimation
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.12), simcdm
 LinkingTo: Rcpp, RcppArmadillo, rgen, simcdm
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 Suggests: knitr,
     rmarkdown

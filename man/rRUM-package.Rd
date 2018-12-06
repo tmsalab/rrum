@@ -5,17 +5,17 @@
 \alias{rrum-package}
 \alias{_PACKAGE}
 \title{rrum: Bayesian Estimation of reduced Reparametrized Unified Model
-(rRUM) with Gibbs Sampling}
+        (rRUM) with Gibbs Sampling}
 \description{
 Implementation of Gibbs sampling algorithm for Bayesian Estimation
-of reduced Reparametrized Unifed Model (rRUM), described by Culpepper and
-Hudson (2017) <doi: 10.1177/0146621617707511>.
+    of reduced Reparametrized Unifed Model (rRUM), described by Culpepper and
+    Hudson (2017) <doi: 10.1177/0146621617707511>.
 }
 \details{
 Implemention of the reduced Reparametrized Unified Model
 }
 \references{
-Culpepper, S. A. & Hudson, A. (In Press). An improved strategy for Bayesian 
+Culpepper, S. A. & Hudson, A. (In Press). An improved strategy for Bayesian
 estimation of the reduced reparameterized unified model. Applied
 Psychological Measurement.
 

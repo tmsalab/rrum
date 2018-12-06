@@ -4,8 +4,8 @@
 \alias{rrum_helper}
 \title{Gibbs sampler to estimate the rRUM}
 \usage{
-rrum_helper(Y, Q, delta0, chain_length = 10000L, as = 1, bs = 1, ag = 1,
-  bg = 1)
+rrum_helper(Y, Q, delta0, chain_length = 10000L, as = 1, bs = 1,
+  ag = 1, bg = 1)
 }
 \arguments{
 \item{Y}{A \code{matrix} with \eqn{N} rows and \eqn{J} columns
@@ -94,7 +94,7 @@ pis.mean <- with(Gibbs.out, apply(PI[,-burnin], 1 ,mean))
 }
 }
 \references{
-Culpepper, S. A. & Hudson, A. (In Press). An improved strategy for Bayesian 
+Culpepper, S. A. & Hudson, A. (In Press). An improved strategy for Bayesian
 estimation of the reduced reparameterized unified model. Applied
 Psychological Measurement.
 

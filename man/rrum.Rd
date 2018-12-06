@@ -93,7 +93,7 @@ pis.mean <- with(Gibbs.out, apply(PI[,-burnin], 1 ,mean))
 }
 }
 \references{
-Culpepper, S. A. & Hudson, A. (In Press). An improved strategy for Bayesian 
+Culpepper, S. A. & Hudson, A. (In Press). An improved strategy for Bayesian
 estimation of the reduced reparameterized unified model. Applied
 Psychological Measurement.
 
