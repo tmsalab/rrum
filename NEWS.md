@@ -1,3 +1,14 @@
+# rrum 2.0.0
+
+## API Breakage
+
+- Deprecated `rRUM_Gibbs()` in favor of `rrum()`.
+- Deprecated `pi_reference()` in favor of `sim_alpha_matrix()`. 
+
+## Changes
+
+- Imported simulation functions from `simcdm`
+
 # rrum 1.0.1
 
 - Improved documentation
