@@ -61,36 +61,56 @@ Obtains samples from posterior distributon for the reduced Reparametrized
 Unified Model (rRUM).
 }
 \examples{
-\dontrun{
-###################################
-### Generate random data from rRUM
-### and recover parameters with
-### Gibbs sampler
-###################################
+# Set seed for reproducibility
 set.seed(217)
-# Define Simulation Parameters
-N <- 1000 # number of individuals
-J <- 6 # number of items
-K <- 2 # number of attributes
-As <- pi_reference(K) # matrix where rows represent attribute classes
-pis <- c(.1, .2, .3, .4) # pi
-Q <- rbind(c(1,0),
-           c(0,1),
-           c(1,0),
-           c(0,1),
-           c(1,1),
-           c(1,1))
-pistar <- rep(.9, J) # pistar
-rstar <- .5 * Q # rstar
-alpha <- As[sample(1:(K ^ 2), N, replace = TRUE, pis),]
+
+## Define Simulation Parameters
+
+N = 1000 # Number of Individuals
+J = 6    # Number of Items
+K = 2    # Number of Attributes
+
+# Matrix where rows represent attribute classes
+As = sim_alpha_matrix(K) 
+
+# Latent Class probabilities
+pis = c(.1, .2, .3, .4) 
+
+# Q Matrix
+Q = rbind(c(1, 0),
+          c(0, 1),
+          c(1, 0),
+          c(0, 1),
+          c(1, 1),
+          c(1, 1)
+    )
+    
+# The probabiliies of answering each item correctly for individuals 
+# who do not lack any required attribute
+pistar = rep(.9, J)
+
+# Penalties for failing to have each of the required attributes
+rstar  = .5 * Q
+
+# Randomized alpha profiles
+alpha  = As[sample(1:(K ^ 2), N, replace = TRUE, pis),]
+
 # Simulate data
-Y <- simcdm::sim_rrum(Q, rstar, pistar, alpha)
+rrum_items = sim_rrum_items(Q, rstar, pistar, alpha)
+
+\dontrun{
+# Note: This portion of the code is computationally intensive.
+
 # Recover simulation parameters with Gibbs Sampler
-Gibbs.out <- rrum(Y, Q)
-burnin <- 1:5000 # iterations to be discarded from chain as burnin
-rstar.mean <- with(Gibbs.out, apply(RSTAR[,,-burnin], c(1, 2), mean))
-pistar.mean <- with(Gibbs.out, apply(PISTAR[,-burnin], 1, mean))
-pis.mean <- with(Gibbs.out, apply(PI[,-burnin], 1 ,mean))
+Gibbs.out = rrum(rrum_items, Q)
+
+# Iterations to be discarded from chain as burnin
+burnin = 1:5000 
+
+# Calculate summarizes of posterior distributions
+rstar.mean  = with(Gibbs.out, apply(RSTAR[,,-burnin], c(1, 2), mean))
+pistar.mean = with(Gibbs.out, apply(PISTAR[,-burnin], 1, mean))
+pis.mean    = with(Gibbs.out, apply(PI[,-burnin], 1 ,mean))
 }
 }
 \references{
