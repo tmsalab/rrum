@@ -12,19 +12,50 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Travis-CI Build Status](https://travis-ci.org/tmsalab/rrum.svg?branch=master)](https://travis-ci.org/tmsalab/rrum)[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/rrum)](http://www.r-pkg.org/pkg/rrum)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rrum)](https://cran.r-project.org/package=rrum)
-
 # rrum
 
+[![Build Status](https://travis-ci.org/tmsalab/rrum.svg)](https://travis-ci.org/tmsalab/rrum)
+[![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![CRAN](http://www.r-pkg.org/badges/version/rrum)](https://cran.r-project.org/package=rrum)
+[![Downloads](http://cranlogs.r-pkg.org/badges/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
+
 The goal of rrum is to provide an implementation of Gibbs sampling algorithm 
-for Bayesian Estimation of reduced Reparametrized Unifed Model (rRUM),
+for Bayesian Estimation of **reduced Reparametrized Unifed Model (rRUM)**,
 described by Culpepper and Hudson (2017) <doi: 10.1177/0146621617707511>.
 
 ## Installation
 
-You can install rrum from github with:
+You can install `rrum` from CRAN using:
+
+```{r cran-installation, eval = FALSE}
+install.packages("rrum")
+```
+
+Or, you can be on the cutting-edge development version on GitHub using:
 
 ```{r gh-installation, eval = FALSE}
-# install.packages("devtools")
+if(!requireNamespace("devtools")) install.packages("devtools")
 devtools::install_github("tmsalab/rrum")
 ```
+
+## Usage
+
+To use `rrum`, load the package using:
+
+```{r example}
+library("rrum")
+```
+
+From here, the rRUM model can be estimated using:
+
+```{r dina-est, eval = FALSE}
+rrum_model = rrum(<data>, <q>)
+```
+
+## Authors
+
+Steven Andrew Culpepper, Aaron Hudson, and James Joseph Balamuta
+
+## License
+
+GPL (>= 2)
