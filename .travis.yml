@@ -15,3 +15,8 @@ env:
   - MAKEFLAGS="-j 2"
   - _R_CHECK_FORCE_SUGGESTS
 
+jobs:
+  include:
+  - r: devel
+  - r: release
+  
