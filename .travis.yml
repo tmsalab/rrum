@@ -13,10 +13,14 @@ cache: packages
 env:
   global:
   - MAKEFLAGS="-j 2"
-  - _R_CHECK_FORCE_SUGGESTS
+  - _R_CHECK_FORCE_SUGGESTS_=false
 
+# Run R package on both release and developer versions
 jobs:
   include:
-  - r: devel
   - r: release
-  
+  - r: devel
+
+# If one fails, avoid running the other.
+matrix:
+  fast_finish: true
