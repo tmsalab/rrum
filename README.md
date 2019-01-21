@@ -43,9 +43,33 @@ From here, the rRUM model can be estimated using:
 rrum_model = rrum(<data>, <q>)
 ```
 
+Additional parameters can be accessed with:
+
+``` r
+rrum_model = rrum(<data>, <q>, chain_length = 10000L,
+                  as = 1, bs = 1, ag = 1, bg = 1,
+                  delta0 = rep(1, 2^ncol(Q)))
+```
+
+`rRUM` item data can be simulated using:
+
+``` r
+rrum_items = simcdm::sim_rrum_items(<q>, <rstar>, <pistar>, <alpha>)
+```
+
 ## Authors
 
 Steven Andrew Culpepper, Aaron Hudson, and James Joseph Balamuta
+
+## Citing the `rrum` package
+
+To ensure future development of the package, please cite `rrum` package
+if used during the analysis or simulations. Citation information for the
+package may be acquired by using in *R*:
+
+``` r
+citation("rrum")
+```
 
 ## License
 
