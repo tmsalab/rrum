@@ -122,6 +122,9 @@ of the generalized NIDA model with Gibbs sampling. Paper presented at the
 annual International Meeting of the Psychometric Society, Asheville, North
 Carolina.
 }
+\seealso{
+\code{\link[simcdm:sim_rrum_items]{simcdm::sim_rrum_items()}}
+}
 \author{
-Steven Andrew Culpepper, Aaron Hudson
+Steven Andrew Culpepper, Aaron Hudson, and James Joseph Balamuta
 }

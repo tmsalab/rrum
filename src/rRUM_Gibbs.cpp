@@ -215,7 +215,9 @@ Rcpp::List rrum_main(const arma::mat &Y, const arma::mat &Q,
 //'           number of individuals, and `K` represents the number of
 //'           attributes. Each slice represents one draw from the posterior
 //'           distribution of `alpha`.
-//' @author Steven Andrew Culpepper, Aaron Hudson
+//' @author 
+//' Steven Andrew Culpepper, Aaron Hudson, and James Joseph Balamuta
+//' 
 //' @template rrum-example
 //' @template rrum-references
 //' @keywords internal

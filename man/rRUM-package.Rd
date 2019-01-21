@@ -12,7 +12,8 @@ Implementation of Gibbs sampling algorithm for Bayesian Estimation
     Hudson (2017) <doi: 10.1177/0146621617707511>.
 }
 \details{
-Implemention of the reduced Reparametrized Unified Model
+Implemention of a bayesian estimation for the
+reduced Reparametrized Unified Model (rRUM).
 }
 \references{
 Culpepper, S. A. & Hudson, A. (In Press). An improved strategy for Bayesian

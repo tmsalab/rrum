@@ -1,8 +1,8 @@
 #' @useDynLib rrum, .registration=TRUE
 #' @importFrom Rcpp evalCpp
-#' @importFrom simcdm sim_rrum_items
 #' @details 
-#' Implemention of the reduced Reparametrized Unified Model
+#' Implemention of a bayesian estimation for the 
+#' reduced Reparametrized Unified Model (rRUM).
 #' @template rrum-references
 #' @aliases rrum-package
 "_PACKAGE"

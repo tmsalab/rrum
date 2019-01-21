@@ -124,6 +124,6 @@ annual International Meeting of the Psychometric Society, Asheville, North
 Carolina.
 }
 \author{
-Steven Andrew Culpepper, Aaron Hudson
+Steven Andrew Culpepper, Aaron Hudson, and James Joseph Balamuta
 }
 \keyword{internal}
