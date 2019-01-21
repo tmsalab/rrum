@@ -132,7 +132,7 @@ Rcpp::List rrum_main(const arma::mat &Y, const arma::mat &Q,
     unsigned int K = Q.n_cols;
     unsigned int C = pow(2, K);
 
-    arma::vec vv = simcdm::bijectionvector(K);
+    arma::vec vv = simcdm::attribute_bijection(K);
 
     // Prior values for betas and Dirichlet distribution
     // arma::vec delta0 = arma::ones<arma::vec>(C);
