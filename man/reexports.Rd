@@ -5,6 +5,7 @@
 \alias{reexports}
 \alias{sim_attribute_classes}
 \alias{attribute_bijection}
+\alias{sim_rrum_items}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -12,6 +13,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{simcdm}{\code{\link[simcdm]{sim_attribute_classes}}, \code{\link[simcdm]{attribute_bijection}}}
+  \item{simcdm}{\code{\link[simcdm]{sim_attribute_classes}}, \code{\link[simcdm]{attribute_bijection}}, \code{\link[simcdm]{sim_rrum_items}}}
 }}
 
