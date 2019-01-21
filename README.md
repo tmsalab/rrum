@@ -6,8 +6,15 @@
 [![Build
 Status](https://travis-ci.org/tmsalab/rrum.svg)](https://travis-ci.org/tmsalab/rrum)
 [![Package-License](http://img.shields.io/badge/license-GPL%20\(%3E=2\)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
-[![CRAN](http://www.r-pkg.org/badges/version/rrum)](https://cran.r-project.org/package=rrum)
+[![CRAN Version
+Badge](http://www.r-pkg.org/badges/version/rrum)](https://cran.r-project.org/package=rrum)
+[![CRAN
+Status](https://cranchecks.info/badges/worst/rrum)](https://cran.r-project.org/web/checks/check_results_rrum.html)
 [![Downloads](http://cranlogs.r-pkg.org/badges/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
+[![Grand Total of
+Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
+[![Coverage
+status](https://codecov.io/gh/tmsalab/rrum/branch/master/graph/badge.svg)](https://codecov.io/github/tmsalab/rrum?branch=master)
 
 The goal of rrum is to provide an implementation of Gibbs sampling
 algorithm for Bayesian Estimation of **reduced Reparametrized Unifed
@@ -64,8 +71,8 @@ Steven Andrew Culpepper, Aaron Hudson, and James Joseph Balamuta
 ## Citing the `rrum` package
 
 To ensure future development of the package, please cite `rrum` package
-if used during the analysis or simulations. Citation information for the
-package may be acquired by using in *R*:
+if used during an analysis or simulation study. Citation information for
+the package may be acquired by using in *R*:
 
 ``` r
 citation("rrum")
