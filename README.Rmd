@@ -18,8 +18,8 @@ knitr::opts_chunk$set(
 [![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN Version Badge](http://www.r-pkg.org/badges/version/rrum)](https://cran.r-project.org/package=rrum)
 [![CRAN Status](https://cranchecks.info/badges/worst/rrum)](https://cran.r-project.org/web/checks/check_results_rrum.html)
-[![Downloads](http://cranlogs.r-pkg.org/badges/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
-[![Grand Total of Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
+[![RStudio CRAN Mirror's Monthly Downloads](http://cranlogs.r-pkg.org/badges/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
+[![RStudio CRAN Mirror's Total Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
 [![Coverage status](https://codecov.io/gh/tmsalab/rrum/branch/master/graph/badge.svg)](https://codecov.io/github/tmsalab/rrum?branch=master)
 
 The goal of rrum is to provide an implementation of Gibbs sampling algorithm 
@@ -66,9 +66,33 @@ rrum_model = rrum(<data>, <q>, chain_length = 10000L,
 `rRUM` item data can be simulated using:
 
 ```{r rrum-sim, eval = FALSE}
-rrum_items = simcdm::sim_rrum_items(<q>, <rstar>, <pistar>, <alpha>)
-```
+# Set a seed for reproducibility
+set.seed(888)
 
+# Setup Parameters
+N = 15   # Number of Examinees / Subjects
+J = 10   # Number of Items
+K = 2    # Number of Skills / Attributes
+
+# Simulate identifiable Q matrix
+Q = sim_q_matrix(J, K)
+
+# Penalties for failing to have each of the required attributes
+rstar  = .5 * Q
+
+# The probabilities of answering each item correctly for individuals 
+# who do not lack any required attribute
+pistar = rep(.9, J)
+
+# Latent Class Probabilities
+pis = c(.1, .2, .3, .4)
+
+# Generate latent attribute profile with custom probability (N subjects by K skills)
+subject_alphas = sim_subject_attributes(N, K, prob = pis)
+
+# Simulate rrum items
+rrum_items = simcdm::sim_rrum_items(Q, rstar, pistar, subject_alphas)
+```
 
 ## Authors
 
