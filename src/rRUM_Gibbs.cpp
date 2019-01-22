@@ -228,13 +228,15 @@ Rcpp::List rrum_helper(const arma::mat &Y, const arma::mat &Q,
                        double bs = 1, double ag = 1, double bg = 1)
 {
 
+    // Consider improving error messages... 
     if (Q.n_rows != Y.n_cols) {
-        Rcpp::stop("Y must have as many rows as Q has columns");
+        Rcpp::stop("`Y` must have as many rows as `Q` has columns");
     }
+    
     if (delta0.n_elem !=
         static_cast<int>(pow(2.0, static_cast<double>(Q.n_cols)))) {
-        Rcpp::stop("delta0 must be numeric of length 2 ^ ncol(Q)");
+        Rcpp::stop("`delta0` must be numeric of length 2 ^ ncol(Q)");
     }
 
-    return (rrum_main(Y, Q, delta0, chain_length, as, bs, ag, bg));
+    return(rrum_main(Y, Q, delta0, chain_length, as, bs, ag, bg));
 }
