@@ -4,10 +4,10 @@ citEntry(entry = "Manual",
          title        = "{rrum: Bayesian Estimation of reduced Reparametrized Unified Model (rRUM) with Gibbs Sampling}",
          author       = personList(as.person("Steven Andrew Culpepper"),
                                    as.person("Aaron Hudson"),
-                                   as.person("James Balamuta")
+                                   as.person("James Joseph Balamuta")
                                   ),
          year         = 2019,
-         textVersion  = paste("Culpepper, S.A., Hudson, A., and Balamuta, J.J (2019)",
+         textVersion  = paste("Culpepper, S.A., Hudson, A., and Balamuta, J.J. (2019)",
                               "rrum: Bayesian Estimation of reduced Reparametrized Unified Model (rRUM) with Gibbs Sampling.",
                               "URL https://cran.r-project.org/package=rrum.")
 )
