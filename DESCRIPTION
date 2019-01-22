@@ -15,8 +15,11 @@ Imports: Rcpp (>= 1.0.0)
 LinkingTo: Rcpp, RcppArmadillo, rgen, simcdm
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
-Suggests: knitr,
-    rmarkdown
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat,
+    covr
 VignetteBuilder: knitr
 SystemRequirements: C++11
 Encoding: UTF-8
