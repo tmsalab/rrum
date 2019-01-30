@@ -30,7 +30,7 @@ Carolina.
 
 Authors:
 \itemize{
-  \item Steven Culpepper \email{sculpepp@illinois.edu} (0000-0003-4226-6176) [copyright holder]
+  \item Steven Andrew Culpepper \email{sculpepp@illinois.edu} (0000-0003-4226-6176) [copyright holder]
   \item Aaron Hudson \email{awhudson@uw.edu} (0000-0002-9731-2224) [copyright holder]
 }
 
