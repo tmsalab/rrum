@@ -4,7 +4,7 @@ Title: Bayesian Estimation of reduced Reparametrized Unified Model
         (rRUM) with Gibbs Sampling
 Version: 2.0.0
 Authors@R: c(
-           person("Steven", "Culpepper", 
+           person("Steven Andrew", "Culpepper", 
                   email = "sculpepp@illinois.edu",
                   role = c("aut", "cph"),
                   comment = c(ORCID = "0000-0003-4226-6176")),
