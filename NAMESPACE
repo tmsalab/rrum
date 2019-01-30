@@ -3,6 +3,6 @@
 export(rrum)
 importFrom(Rcpp,evalCpp)
 importFrom(simcdm,attribute_bijection)
-importFrom(simcdm,sim_attribute_classes)
+importFrom(simcdm,attribute_classes)
 importFrom(simcdm,sim_rrum_items)
 useDynLib(rrum, .registration=TRUE)
