@@ -71,7 +71,7 @@ J = 6    # Number of Items
 K = 2    # Number of Attributes
 
 # Matrix where rows represent attribute classes
-As = sim_alpha_matrix(K) 
+As = sim_attribute_classes(K) 
 
 # Latent Class probabilities
 pis = c(.1, .2, .3, .4) 
@@ -124,6 +124,6 @@ annual International Meeting of the Psychometric Society, Asheville, North
 Carolina.
 }
 \author{
-Steven Andrew Culpepper, Aaron Hudson
+Steven Andrew Culpepper, Aaron Hudson, and James Joseph Balamuta
 }
 \keyword{internal}

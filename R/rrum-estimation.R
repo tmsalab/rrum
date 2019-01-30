@@ -25,7 +25,9 @@
 #' @param bg           A `numeric`, parameter for the prior distribution of
 #'                     pistar.  High values as encourage lower values of rstar.
 #' @param delta0       A `vector`, parameters for the Dirichlet prior on pi.
-#' @return A `list` that contains
+#' 
+#' @return 
+#' A `list` that contains
 #' 
 #' - `PISTAR`: A `matrix` where each column represents one draw from the
 #'            posterior distribution of pistar.
@@ -39,7 +41,13 @@
 #'           number of individuals, and `K` represents the number of
 #'           attributes. Each slice represents one draw from the posterior
 #'           distribution of `alpha`.
-#' @author Steven Andrew Culpepper, Aaron Hudson
+#'           
+#' @author 
+#' Steven Andrew Culpepper, Aaron Hudson, and James Joseph Balamuta
+#' 
+#' @seealso 
+#' [simcdm::sim_rrum_items()]
+#' 
 #' @export
 #' @template rrum-example
 #' @template rrum-references

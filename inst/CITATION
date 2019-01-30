@@ -1,0 +1,30 @@
+citHeader("To cite 'rrum' in publications use:")
+
+citEntry(entry = "Manual",
+         title        = "{rrum: Bayesian Estimation of reduced Reparametrized Unified Model (rRUM) with Gibbs Sampling}",
+         author       = personList(as.person("Steven Andrew Culpepper"),
+                                   as.person("Aaron Hudson"),
+                                   as.person("James Joseph Balamuta")
+                                  ),
+         year         = 2019,
+         textVersion  = paste("Culpepper, S.A., Hudson, A., and Balamuta, J.J. (2019)",
+                              "rrum: Bayesian Estimation of reduced Reparametrized Unified Model (rRUM) with Gibbs Sampling.",
+                              "URL https://cran.r-project.org/package=rrum.")
+)
+
+citEntry(entry   = "Article",
+         title   = "{An Improved Strategy for Bayesian Estimation of the Reduced Reparameterized Unified Model}",
+         author  = personList(as.person("Steven Andrew Culpepper"),
+                              as.person("Aaron Hudson")),
+         journal = "Applied Psychological Measurement",
+         url     = "https://doi.org/10.1177/0146621617707511",
+         volume  = "42",
+         number  = "2",
+         pages   = "99-115",
+         year    = "2018",
+         doi     = "10.1177/0146621617707511",
+         textVersion  = paste("Culpepper, S.A. and Hudson, A. (2018).",
+                              "An Improved Strategy for Bayesian Estimation of the Reduced Reparameterized Unified Model.",
+                              "Applied Psychological Measurement, 42(2), 99–115.",
+                              "URL https://doi.org/10.1177/0146621617707511.")
+)
