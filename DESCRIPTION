@@ -2,7 +2,7 @@ Package: rrum
 Type: Package
 Title: Bayesian Estimation of reduced Reparametrized Unified Model
         (rRUM) with Gibbs Sampling
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
            person("Steven Andrew", "Culpepper", 
                   email = "sculpepp@illinois.edu",

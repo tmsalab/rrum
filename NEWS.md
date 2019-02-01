@@ -1,4 +1,4 @@
-# rrum 0.1.0
+# rrum 0.2.0
 
 ## API Breakage
 
@@ -7,9 +7,18 @@
 
 ## Changes
 
-- Improved `README` examples
 - Added `CITATION` file for citing both the APM paper and package.
 - Imported simulation functions from `simcdm`
+
+## Documentation
+
+- Improved `README` examples
+
+## Deployment
+
+- Added Travis-CI configuration for TMSA Lab.
+- Added Unit Tests for model reproducibility.
+- Added code coverage checks.
 
 # rrum 0.1.0
 
