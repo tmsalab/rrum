@@ -130,7 +130,7 @@ Rcpp::List rrum_main(const arma::mat &Y, const arma::mat &Q,
     unsigned int N = Y.n_rows;
     unsigned int J = Y.n_cols;
     unsigned int K = Q.n_cols;
-    unsigned int C = pow(2, K);
+    unsigned int C = static_cast<unsigned int>(pow(2.0, static_cast<double>(K)));
 
     arma::vec vv = simcdm::attribute_bijection(K);
 
@@ -234,7 +234,7 @@ Rcpp::List rrum_helper(const arma::mat &Y, const arma::mat &Q,
     }
     
     if (delta0.n_elem !=
-        static_cast<int>(pow(2.0, static_cast<double>(Q.n_cols)))) {
+        static_cast<unsigned int>(pow(2.0, static_cast<double>(Q.n_cols)))) {
         Rcpp::stop("`delta0` must be numeric of length 2 ^ ncol(Q)");
     }
 
