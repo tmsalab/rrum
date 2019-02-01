@@ -3,16 +3,30 @@ Type: Package
 Title: Bayesian Estimation of reduced Reparametrized Unified Model
         (rRUM) with Gibbs Sampling
 Version: 2.0.0
-Authors@R: c(person("Steven", "Culpepper", email = "sculpepp@illinois.edu", role = c("aut", "cph")),
-           person("Aaron", "Hudson", email = "awhudson@uw.edu", role = c("aut", "cph")),
-           person("James", "Balamuta", email = "balamut2@illinois.edu", role = c("aut", "cre")))
+Authors@R: c(
+           person("Steven Andrew", "Culpepper", 
+                  email = "sculpepp@illinois.edu",
+                  role = c("aut", "cph"),
+                  comment = c(ORCID = "0000-0003-4226-6176")
+           ),
+           person("Aaron", "Hudson", 
+                  email = "awhudson@uw.edu", 
+                  role = c("aut", "cph"),
+                  comment = c(ORCID = "0000-0002-9731-2224")
+           ),
+           person("James Joseph", "Balamuta", 
+                  email = "balamut2@illinois.edu",
+                  role = c("aut", "cph", "cre"),
+                  comment = c(ORCID = "0000-0003-2826-8458")
+           )
+          )
 Description: Implementation of Gibbs sampling algorithm for Bayesian Estimation
     of reduced Reparametrized Unifed Model (rRUM), described by Culpepper and
     Hudson (2017) <doi: 10.1177/0146621617707511>.
 License: GPL (>= 2)
-Depends: R (>= 3.5.0), simcdm
+Depends: R (>= 3.4.0), simcdm (>= 0.1.0)
 Imports: Rcpp (>= 1.0.0)
-LinkingTo: Rcpp, RcppArmadillo, rgen, simcdm
+LinkingTo: Rcpp, RcppArmadillo (>= 0.9.200), rgen, simcdm
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 Suggests: 
@@ -23,4 +37,3 @@ Suggests:
 VignetteBuilder: knitr
 SystemRequirements: C++11
 Encoding: UTF-8
-Remotes: tmsalab/simcdm
