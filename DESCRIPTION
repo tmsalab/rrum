@@ -36,4 +36,3 @@ Suggests:
 VignetteBuilder: knitr
 SystemRequirements: C++11
 Encoding: UTF-8
-Remotes: tmsalab/simcdm
