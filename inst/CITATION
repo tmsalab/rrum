@@ -1,4 +1,4 @@
-citHeader("To cite 'rrum' in publications use:")
+citHeader("To cite the 'rrum' R package and method paper in publications use:")
 
 citEntry(entry = "Manual",
          title        = "{rrum: Bayesian Estimation of reduced Reparametrized Unified Model (rRUM) with Gibbs Sampling}",
