@@ -17,8 +17,8 @@ Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rrum?color=brightgreen)]
 [![Coverage
 status](https://codecov.io/gh/tmsalab/rrum/branch/master/graph/badge.svg)](https://codecov.io/github/tmsalab/rrum?branch=master)
 
-The goal of rrum is to provide an implementation of Gibbs sampling
-algorithm for Bayesian Estimation of **reduced Reparametrized Unifed
+The goal of `rrum` is to provide an implementation of Gibbs sampling
+algorithm for Bayesian Estimation of **Reduced Reparameterized Unified
 Model (rRUM)**, described by Culpepper and Hudson (2017) \<doi:
 10.1177/0146621617707511\>.
 
@@ -43,6 +43,7 @@ To use `rrum`, load the package using:
 
 ``` r
 library("rrum")
+#> Loading required package: simcdm
 ```
 
 From here, the rRUM model can be estimated using:

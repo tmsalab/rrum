@@ -4,16 +4,16 @@
 \name{rrum-package}
 \alias{rrum-package}
 \alias{_PACKAGE}
-\title{rrum: Bayesian Estimation of reduced Reparametrized Unified Model
-        (rRUM) with Gibbs Sampling}
+\title{rrum: Bayesian Estimation of Reduced Reparameterized Unified Model ('rRUM') with 
+       Gibbs Sampling}
 \description{
 Implementation of Gibbs sampling algorithm for Bayesian Estimation
-    of reduced Reparametrized Unifed Model (rRUM), described by Culpepper and
+    of reduced Reparameterized Unified Model ('rRUM'), described by Culpepper and
     Hudson (2017) <doi: 10.1177/0146621617707511>.
 }
 \details{
-Implemention of a bayesian estimation for the
-reduced Reparametrized Unified Model (rRUM).
+Implemention of a Bayesian estimation for the
+reduced Reparameterized Unified Model (rRUM).
 }
 \references{
 Culpepper, S. A. & Hudson, A. (In Press). An improved strategy for Bayesian
