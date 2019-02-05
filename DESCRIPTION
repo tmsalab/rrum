@@ -1,7 +1,6 @@
 Package: rrum
 Type: Package
-Title: Bayesian Estimation of Reduced Reparameterized Unified Model ('rRUM') with 
-       Gibbs Sampling
+Title: Bayesian Estimation of the Reduced Reparameterized Unified Model with Gibbs Sampling
 Version: 0.2.0
 Authors@R: c(
            person("Steven Andrew", "Culpepper", 
@@ -21,8 +20,8 @@ Authors@R: c(
            )
           )
 Description: Implementation of Gibbs sampling algorithm for Bayesian Estimation
-    of reduced Reparameterized Unified Model ('rRUM'), described by Culpepper and
-    Hudson (2017) <doi: 10.1177/0146621617707511>.
+    of the Reduced Reparameterized Unified Model ('rrum'), described by 
+    Culpepper and Hudson (2017) <doi: 10.1177/0146621617707511>.
 License: GPL (>= 2)
 Depends: R (>= 3.4.0), simcdm (>= 0.1.0)
 Imports: Rcpp (>= 1.0.0)

@@ -19,7 +19,7 @@ status](https://codecov.io/gh/tmsalab/rrum/branch/master/graph/badge.svg)](https
 
 The goal of `rrum` is to provide an implementation of Gibbs sampling
 algorithm for Bayesian Estimation of **Reduced Reparameterized Unified
-Model (rRUM)**, described by Culpepper and Hudson (2017) \<doi:
+Model (rrum)**, described by Culpepper and Hudson (2017) \<doi:
 10.1177/0146621617707511\>.
 
 ## Installation
