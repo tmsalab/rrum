@@ -24,4 +24,11 @@ Found the following (possibly) invalid URLs:
 - This is a new release therefore there are no URLs for the package
   on CRAN or at the r-pkg organization. Once accepted, these URLs will
   become active.
-- Misspelled new words are either part of the
+- The mis-spelled word is a package author's last name.
+
+## Feedback
+
+We've updated the package based on feedback regarding the `DESCRIPTION` file's
+title and description entries. In particular, we've removed the acronym from
+the package title and embedded it in the description. Furthermore, we opted to
+make the acronym in lowercase.
