@@ -22,6 +22,8 @@ Authors@R: c(
 Description: Implementation of Gibbs sampling algorithm for Bayesian Estimation
     of the Reduced Reparameterized Unified Model ('rrum'), described by 
     Culpepper and Hudson (2017) <doi: 10.1177/0146621617707511>.
+URL: https://github.com/tmsalab/rrum
+BugReports: https://github.com/tmsalab/rrum/issues
 License: GPL (>= 2)
 Depends: R (>= 3.4.0), simcdm (>= 0.1.0)
 Imports: Rcpp (>= 1.0.0)
