@@ -3,6 +3,8 @@
 
 # rrum
 
+<!-- badges: start -->
+
 [![Build
 Status](https://travis-ci.org/tmsalab/rrum.svg)](https://travis-ci.org/tmsalab/rrum)
 [![Package-License](http://img.shields.io/badge/license-GPL%20\(%3E=2\)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
@@ -14,8 +16,9 @@ Status](https://cranchecks.info/badges/worst/rrum)](https://cran.r-project.org/w
 Downloads](http://cranlogs.r-pkg.org/badges/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
 [![RStudio CRAN Mirror’s Total
 Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
-[![Coverage
-status](https://codecov.io/gh/tmsalab/rrum/branch/master/graph/badge.svg)](https://codecov.io/github/tmsalab/rrum?branch=master)
+[![Coverage test
+coverage](https://codecov.io/gh/tmsalab/rrum/branch/master/graph/badge.svg)](https://codecov.io/github/tmsalab/rrum?branch=master)
+<!-- badges: end -->
 
 The goal of `rrum` is to provide an implementation of Gibbs sampling
 algorithm for Bayesian Estimation of **Reduced Reparameterized Unified
