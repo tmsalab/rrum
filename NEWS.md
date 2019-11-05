@@ -1,3 +1,10 @@
+# rrum 0.2.0.1000
+
+## Documentation
+
+- Added release dates
+- Added a `pkgdown` website that deploys to <http://tmsalab.github.io/rrum>.
+
 # rrum 0.2.0
 
 ## API Breakage
