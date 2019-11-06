@@ -1,3 +1,4 @@
+^CRAN-RELEASE$
 ^cran-comments\.md$
 ^codecov\.yml$
 ^.*\.Rproj$
@@ -7,3 +8,6 @@
 ^README-.*\.png$
 man-roxygen
 ^src/\.clang-format
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

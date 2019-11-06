@@ -4,10 +4,10 @@
 \name{rrum-package}
 \alias{rrum-package}
 \alias{_PACKAGE}
-\title{rrum: Bayesian Estimation of 'RRUM' Model with Gibbs Sampling}
+\title{rrum: Bayesian Estimation of the Reduced Reparameterized Unified Model with Gibbs Sampling}
 \description{
 Implementation of Gibbs sampling algorithm for Bayesian Estimation
-    of the Reduced Reparameterized Unified Model ('RRUM'), described by 
+    of the Reduced Reparameterized Unified Model ('rrum'), described by 
     Culpepper and Hudson (2017) <doi: 10.1177/0146621617707511>.
 }
 \details{
@@ -23,6 +23,15 @@ Hudson, A., Culpepper, S. A., & Douglas, J. (2016, July). Bayesian estimation
 of the generalized NIDA model with Gibbs sampling. Paper presented at the
 annual International Meeting of the Psychometric Society, Asheville, North
 Carolina.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://tmsalab.github.io/rrum}
+  \item \url{https://github.com/tmsalab/rrum}
+  \item Report bugs at \url{https://github.com/tmsalab/rrum/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: James Joseph Balamuta \email{balamut2@illinois.edu} (0000-0003-2826-8458) [copyright holder]
