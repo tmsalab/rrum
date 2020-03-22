@@ -5,6 +5,10 @@
 - Added release dates
 - Added a `pkgdown` website that deploys to <http://tmsalab.github.io/rrum>.
 
+## Deployment
+
+- Changed from Travis-CI to GitHub Actions for R ([#13](https://github.com/tmsalab/rrum/pull/13))
+
 # rrum 0.2.0
 
 ## API Breakage
