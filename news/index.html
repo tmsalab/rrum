@@ -10,16 +10,20 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -63,7 +67,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -98,7 +102,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/tmsalab/rrum">
+  <a href="https://github.com/tmsalab/rrum/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,13 +120,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       <small>Source: <a href='https://github.com/tmsalab/rrum/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="rrum-0-2-0-1000" class="section level1">
-<h1 class="page-header">
-<a href="#rrum-0-2-0-1000" class="anchor"></a>rrum 0.2.0.1000<small> Unreleased </small>
+    <div id="rrum-0201000" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.0.1000">
+<a href="#rrum-0201000" class="anchor"></a>rrum 0.2.0.1000<small> Unreleased </small>
 </h1>
 <div id="documentation" class="section level2">
 <h2 class="hasAnchor">
@@ -132,10 +136,17 @@
 <li>Added a <code>pkgdown</code> website that deploys to <a href="http://tmsalab.github.io/rrum" class="uri">http://tmsalab.github.io/rrum</a>.</li>
 </ul>
 </div>
+<div id="deployment" class="section level2">
+<h2 class="hasAnchor">
+<a href="#deployment" class="anchor"></a>Deployment</h2>
+<ul>
+<li>Changed from Travis-CI to GitHub Actions for R (<a href="https://github.com/tmsalab/rrum/pull/13"><a href='https://github.com/tmsalab/rrum/issues/13'>#13</a></a>)</li>
+</ul>
 </div>
-    <div id="rrum-0-2-0" class="section level1">
-<h1 class="page-header">
-<a href="#rrum-0-2-0" class="anchor"></a>rrum 0.2.0<small> 2019-02-11 </small>
+</div>
+    <div id="rrum-020" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.0">
+<a href="#rrum-020" class="anchor"></a>rrum 0.2.0<small> 2019-02-11 </small>
 </h1>
 <div id="api-breakage" class="section level2">
 <h2 class="hasAnchor">
@@ -161,9 +172,9 @@
 <li>Improved <code>README</code> examples</li>
 </ul>
 </div>
-<div id="deployment" class="section level2">
+<div id="deployment-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#deployment" class="anchor"></a>Deployment</h2>
+<a href="#deployment-1" class="anchor"></a>Deployment</h2>
 <ul>
 <li>Added Travis-CI configuration for TMSA Lab.</li>
 <li>Added Unit Tests for model reproducibility.</li>
@@ -171,18 +182,18 @@
 </ul>
 </div>
 </div>
-    <div id="rrum-0-1-0" class="section level1">
-<h1 class="page-header">
-<a href="#rrum-0-1-0" class="anchor"></a>rrum 0.1.0<small> Unreleased </small>
+    <div id="rrum-010" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.0">
+<a href="#rrum-010" class="anchor"></a>rrum 0.1.0<small> Unreleased </small>
 </h1>
 <ul>
 <li>Improved documentation</li>
 <li>Addressed RcppExport updates</li>
 </ul>
 </div>
-    <div id="rrum-0-0-5" class="section level1">
-<h1 class="page-header">
-<a href="#rrum-0-0-5" class="anchor"></a>rrum 0.0.5<small> Unreleased </small>
+    <div id="rrum-005" class="section level1">
+<h1 class="page-header" data-toc-text="0.0.5">
+<a href="#rrum-005" class="anchor"></a>rrum 0.0.5<small> Unreleased </small>
 </h1>
 <ul>
 <li>Introduced new rRUM estimation routine.</li>
@@ -191,16 +202,10 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#rrum-0-2-0-1000">0.2.0.1000</a></li>
-        <li><a href="#rrum-0-2-0">0.2.0</a></li>
-        <li><a href="#rrum-0-1-0">0.1.0</a></li>
-        <li><a href="#rrum-0-0-5">0.0.5</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -212,7 +217,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
 
       </footer>
