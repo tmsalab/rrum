@@ -6,11 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bayesian Estimation of the Reduced Reparameterized Unified Model with Gibbs Sampling • rrum</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Bayesian Estimation of the Reduced Reparameterized Unified Model with Gibbs Sampling">
 <meta property="og:description" content="Implementation of Gibbs sampling algorithm for Bayesian Estimation
     of the Reduced Reparameterized Unified Model (rrum), described by 
@@ -39,18 +39,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rrum</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.900</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -78,8 +72,7 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div id="rrum" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#rrum" class="anchor"></a>rrum</h1></div>
+
 <!-- badges: start -->
 
 <p>The goal of <code>rrum</code> is to provide an implementation of Gibbs sampling algorithm for Bayesian Estimation of <strong>Reduced Reparameterized Unified Model (rrum)</strong>, described by Culpepper and Hudson (2017) &lt;doi: 10.1177/0146621617707511&gt;.</p>
@@ -99,11 +92,11 @@
 <div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"rrum"</span>)
 <span class="co">#&gt; Loading required package: simcdm</span></pre></div>
 <p>From here, the rRUM model can be estimated using:</p>
-<div class="sourceCode" id="cb4"><pre class="r">rrum_model = rrum(<data>, <q>)</q></data></pre></div>
+<div class="sourceCode" id="cb4"><pre class="r">rrum_model = rrum(&lt;data&gt;, &lt;q&gt;)</pre></div>
 <p>Additional parameters can be accessed with:</p>
-<div class="sourceCode" id="cb5"><pre class="r">rrum_model = rrum(<data>, <q>, chain_length = 10000L,
+<div class="sourceCode" id="cb5"><pre class="r">rrum_model = rrum(&lt;data&gt;, &lt;q&gt;, chain_length = 10000L,
                   as = 1, bs = 1, ag = 1, bg = 1,
-                  delta0 = rep(1, 2^ncol(Q)))</q></data></pre></div>
+                  delta0 = rep(1, 2^ncol(Q)))</pre></div>
 <p><code>rRUM</code> item data can be simulated using:</p>
 <div class="sourceCode" id="cb6"><pre class="r"><span class="co"># Set a seed for reproducibility</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">888</span>)
@@ -178,9 +171,12 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Steven Andrew Culpepper <br><small class="roles"> Author, copyright holder </small> <a href="https://orcid.org/0000-0003-4226-6176" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Aaron Hudson <br><small class="roles"> Author, copyright holder </small> <a href="https://orcid.org/0000-0002-9731-2224" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>James Joseph Balamuta <br><small class="roles"> Author, copyright holder, maintainer </small> <a href="https://orcid.org/0000-0003-2826-8458" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="http://publish.illinois.edu/sculpepper/">Steven Andrew Culpepper</a> <br><small class="roles"> Author, copyright holder </small> <a href="https://orcid.org/0000-0003-4226-6176" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="https://github.com/awhudson">Aaron Hudson</a> <br><small class="roles"> Author, copyright holder </small> <a href="https://orcid.org/0000-0002-9731-2224" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="https://thecoatlessprofessor.com">James Joseph Balamuta</a> <br><small class="roles"> Author, copyright holder, maintainer </small> <a href="https://orcid.org/0000-0003-2826-8458" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
@@ -201,11 +197,11 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Steven Andrew Culpepper, Aaron Hudson, James Joseph Balamuta.</p>
+  <p>Developed by <a href="http://publish.illinois.edu/sculpepper/">Steven Andrew Culpepper</a>, <a href="https://github.com/awhudson">Aaron Hudson</a>, <a href="https://thecoatlessprofessor.com">James Joseph Balamuta</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
