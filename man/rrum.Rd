@@ -4,8 +4,16 @@
 \alias{rrum}
 \title{Gibbs sampler to estimate the rRUM}
 \usage{
-rrum(Y, Q, chain_length = 10000L, as = 1, bs = 1, ag = 1, bg = 1,
-  delta0 = rep(1, 2^ncol(Q)))
+rrum(
+  Y,
+  Q,
+  chain_length = 10000L,
+  as = 1,
+  bs = 1,
+  ag = 1,
+  bg = 1,
+  delta0 = rep(1, 2^ncol(Q))
+)
 }
 \arguments{
 \item{Y}{A \code{matrix} with N rows and J columns, where N reperesnts

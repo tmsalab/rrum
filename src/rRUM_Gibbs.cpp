@@ -221,6 +221,7 @@ Rcpp::List rrum_main(const arma::mat &Y, const arma::mat &Q,
 //' @template rrum-example
 //' @template rrum-references
 //' @keywords internal
+//' @noRd
 // [[Rcpp::export]]
 Rcpp::List rrum_helper(const arma::mat &Y, const arma::mat &Q,
                        const arma::vec &delta0,

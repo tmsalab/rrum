@@ -1,4 +1,28 @@
+url: https://tmsalab.github.io/rrum
+
 template:
   params:
-    bootswatch: cerulean
     ganalytics: UA-151562227-1
+
+home:
+  strip_header: true
+
+development:
+  mode: auto
+
+authors:
+  Steven Andrew Culpepper:
+    href: http://publish.illinois.edu/sculpepper/
+  Aaron Hudson:
+    href: https://github.com/awhudson
+  James Joseph Balamuta:
+    href: https://thecoatlessprofessor.com
+
+reference:
+- title: Bayesian estimation for the reduced Reparameterized Unified Model (rRUM).
+  contents:
+  - rrum
+
+navbar:
+  components:
+    home: ~

@@ -50,6 +50,7 @@
 #' @template rrum-example
 #' @template rrum-references
 #' @keywords internal
+#' @noRd
 rrum_helper <- function(Y, Q, delta0, chain_length = 10000L, as = 1, bs = 1, ag = 1, bg = 1) {
     .Call(`_rrum_rrum_helper`, Y, Q, delta0, chain_length, as, bs, ag, bg)
 }
