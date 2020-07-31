@@ -1,9 +1,9 @@
-# rrum 0.2.0.1000
+# rrum 0.2.1.9000
 
 ## Documentation
 
-- Added release dates
-- Added a `pkgdown` website that deploys to <http://tmsalab.github.io/rrum>.
+- Added a `pkgdown` website that deploys to <http://tmsalab.github.io/rrum> ([#12](https://github.com/tmsalab/rrum/pull/12), [#14](https://github.com/tmsalab/rrum/pull/14)).
+- Pruned non-user facing documentation entry ([#14](https://github.com/tmsalab/rrum/pull/14)).
 
 ## Deployment
 
