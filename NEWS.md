@@ -7,7 +7,7 @@
 
 ## Deployment
 
-- Changed from Travis-CI to GitHub Actions for R ([#13](https://github.com/tmsalab/rrum/pull/13))
+- Changed from Travis-CI to GitHub Actions for R ([#13](https://github.com/tmsalab/rrum/pull/13), [#14](https://github.com/tmsalab/rrum/pull/14))
 
 # rrum 0.2.0
 
