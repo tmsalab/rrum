@@ -5,19 +5,16 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/tmsalab/rrum/workflows/R-CMD-check/badge.svg)](https://github.com/tmsalab/rrum/actions)
-[![Package-License](http://img.shields.io/badge/license-GPL%20\(%3E=2\)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![R-CMD-check](https://github.com/tmsalab/rrum/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tmsalab/rrum/actions/workflows/R-CMD-check.yaml)
+[![Package-License](https://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN Version
-Badge](http://www.r-pkg.org/badges/version/rrum)](https://cran.r-project.org/package=rrum)
+Badge](https://www.r-pkg.org/badges/version/rrum)](https://cran.r-project.org/package=rrum)
 [![CRAN
-Status](https://cranchecks.info/badges/worst/rrum)](https://cran.r-project.org/web/checks/check_results_rrum.html)
+Status](https://badges.cranchecks.info/worst/rrum.svg)](https://cran.r-project.org/web/checks/check_results_rrum.html)
 [![RStudio CRAN Mirror’s Monthly
-Downloads](http://cranlogs.r-pkg.org/badges/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
+Downloads](https://cranlogs.r-pkg.org/badges/rrum?color=brightgreen)](https://www.r-pkg.org/pkg/rrum)
 [![RStudio CRAN Mirror’s Total
-Downloads](http://cranlogs.r-pkg.org/badges/grand-total/rrum?color=brightgreen)](http://www.r-pkg.org/pkg/rrum)
-[![Coverage test
-coverage](https://codecov.io/gh/tmsalab/rrum/branch/master/graph/badge.svg)](https://codecov.io/github/tmsalab/rrum?branch=master)
+Downloads](https://cranlogs.r-pkg.org/badges/grand-total/rrum?color=brightgreen)](https://www.r-pkg.org/pkg/rrum)
 <!-- badges: end -->
 
 The goal of `rrum` is to provide an implementation of Gibbs sampling
@@ -36,8 +33,8 @@ install.packages("rrum")
 Or, you can be on the cutting-edge development version on GitHub using:
 
 ``` r
-if(!requireNamespace("devtools")) install.packages("devtools")
-devtools::install_github("tmsalab/rrum")
+# install.packages('remotes')
+remotes::install_github("tmsalab/rrum")
 ```
 
 ## Usage
@@ -46,7 +43,6 @@ To use `rrum`, load the package using:
 
 ``` r
 library("rrum")
-#> Loading required package: simcdm
 ```
 
 From here, the rRUM model can be estimated using:
