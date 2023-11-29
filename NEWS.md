@@ -1,16 +1,10 @@
-# rrum 0.2.2
+# rrum 0.2.1
 
 ## Bugfixes
 
 - Addressed two issues in R-devel related to C++ usage (deprecation of `CXX_STD` and attribute compilation woes). ([#15](https://github.com/tmsalab/rrum/issues/15))
 - Changed the format in `CITATION` to use `c()` instead of `as.personList()` and
   switched entries from `citEntry()` to `bibentry()`.
-
-## Deployment
-
-- Updated GitHub Actions for testing, pkgdown, and coverage ([#16](https://github.com/tmsalab/rrum/pull/16)).
-
-# rrum 0.2.1
 
 ## Documentation
 
@@ -19,6 +13,7 @@
 
 ## Deployment
 
+- Updated GitHub Actions for testing, pkgdown, and coverage ([#16](https://github.com/tmsalab/rrum/pull/16)).
 - Changed from Travis-CI to GitHub Actions for R ([#13](https://github.com/tmsalab/rrum/pull/13), [#14](https://github.com/tmsalab/rrum/pull/14))
 
 # rrum 0.2.0
