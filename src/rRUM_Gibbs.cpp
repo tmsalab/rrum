@@ -185,6 +185,7 @@ Rcpp::List rrum_main(const arma::mat &Y, const arma::mat &Q,
 //'                     of the items.An entry of 1 indicates attribute \eqn{k}
 //'                     is required to answer item \eqn{j}. An entry of one
 //'                     indicates attribute \eqn{k} is not required.
+//' @param delta0       A `vector`, parameters for the Dirichlet prior on `pi`.
 //' @param chain_length A `numeric` indicating the number of iterations of
 //'                     Gibbs sampler to be run.  Default is set to 10000.
 //' @param as           A `numeric`, parameter for the prior distribution of
@@ -199,7 +200,6 @@ Rcpp::List rrum_main(const arma::mat &Y, const arma::mat &Q,
 //' @param bg           A `numeric`, parameter for the prior distribution of
 //'                     `pistar`.  High values as encourage lower values of
 //'                     `rstar`.
-//' @param deltas       A `vector`, parameters for the Dirichlet prior on `pi`.
 //'
 //' @return A `List`
 //'
