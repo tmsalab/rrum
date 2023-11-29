@@ -26,7 +26,7 @@ URL: https://tmsalab.github.io/rrum/, https://github.com/tmsalab/rrum
 BugReports: https://github.com/tmsalab/rrum/issues
 License: GPL (>= 2)
 Depends: R (>= 4.1.0), simcdm (>= 0.1.0)
-Imports: Rcpp  (>= 1.0.11)
+Imports: Rcpp (>= 1.0.11)
 LinkingTo: Rcpp, RcppArmadillo (>= 0.12.6.6.0), rgen, simcdm
 Suggests: 
     testthat,
