@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tmsalab.github.io/rrum/404.html</loc>
+  </url>
+  <url>
+    <loc>https://tmsalab.github.io/rrum/authors.html</loc>
+  </url>
+  <url>
     <loc>https://tmsalab.github.io/rrum/index.html</loc>
+  </url>
+  <url>
+    <loc>https://tmsalab.github.io/rrum/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://tmsalab.github.io/rrum/reference/index.html</loc>
   </url>
   <url>
     <loc>https://tmsalab.github.io/rrum/reference/rrum-package.html</loc>
