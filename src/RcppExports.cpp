@@ -9,6 +9,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // rrum_helper
 Rcpp::List rrum_helper(const arma::mat& Y, const arma::mat& Q, const arma::vec& delta0, unsigned int chain_length, double as, double bs, double ag, double bg);
 static SEXP _rrum_rrum_helper_try(SEXP YSEXP, SEXP QSEXP, SEXP delta0SEXP, SEXP chain_lengthSEXP, SEXP asSEXP, SEXP bsSEXP, SEXP agSEXP, SEXP bgSEXP) {
@@ -45,7 +50,7 @@ RcppExport SEXP _rrum_rrum_helper(SEXP YSEXP, SEXP QSEXP, SEXP delta0SEXP, SEXP 
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;

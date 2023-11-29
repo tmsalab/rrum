@@ -14,6 +14,7 @@
 #'                     of the items.An entry of 1 indicates attribute \eqn{k}
 #'                     is required to answer item \eqn{j}. An entry of one
 #'                     indicates attribute \eqn{k} is not required.
+#' @param delta0       A `vector`, parameters for the Dirichlet prior on `pi`.
 #' @param chain_length A `numeric` indicating the number of iterations of
 #'                     Gibbs sampler to be run.  Default is set to 10000.
 #' @param as           A `numeric`, parameter for the prior distribution of
@@ -28,7 +29,6 @@
 #' @param bg           A `numeric`, parameter for the prior distribution of
 #'                     `pistar`.  High values as encourage lower values of
 #'                     `rstar`.
-#' @param deltas       A `vector`, parameters for the Dirichlet prior on `pi`.
 #'
 #' @return A `List`
 #'
@@ -57,5 +57,5 @@ rrum_helper <- function(Y, Q, delta0, chain_length = 10000L, as = 1, bs = 1, ag 
 
 # Register entry points for exported C++ functions
 methods::setLoadAction(function(ns) {
-    .Call('_rrum_RcppExport_registerCCallable', PACKAGE = 'rrum')
+    .Call(`_rrum_RcppExport_registerCCallable`)
 })
