@@ -1,20 +1,12 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # rrum
 
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/tmsalab/rrum/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tmsalab/rrum/actions/workflows/R-CMD-check.yaml)
-[![Package-License](https://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html)
-[![CRAN Version
-Badge](https://www.r-pkg.org/badges/version/rrum)](https://cran.r-project.org/package=rrum)
-[![CRAN
-Status](https://badges.cranchecks.info/worst/rrum.svg)](https://cran.r-project.org/web/checks/check_results_rrum.html)
-[![RStudio CRAN Mirror’s Monthly
-Downloads](https://cranlogs.r-pkg.org/badges/rrum?color=brightgreen)](https://www.r-pkg.org/pkg/rrum)
-[![RStudio CRAN Mirror’s Total
-Downloads](https://cranlogs.r-pkg.org/badges/grand-total/rrum?color=brightgreen)](https://www.r-pkg.org/pkg/rrum)
 <!-- badges: end -->
 
 The goal of `rrum` is to provide an implementation of Gibbs sampling
