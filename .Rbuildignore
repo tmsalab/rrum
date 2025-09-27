@@ -5,6 +5,7 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^README\.Rmd$
+^README\.qmd$
 ^README-.*\.png$
 man-roxygen
 ^src/\.clang-format
