@@ -3,6 +3,7 @@ url: https://tmsalab.github.io/rrum
 template:
   params:
     ganalytics: UA-151562227-1
+    bootstrap: 5
 
 home:
   strip_header: true
