@@ -59,6 +59,7 @@
 <h3 id="changes-0-2-2">Changes<a class="anchor" aria-label="anchor" href="#changes-0-2-2"></a></h3>
 <ul><li>Added explicit dependencies on R (&gt;= 4.3.0), Rcpp (&gt;= 1.1.0), and RcppArmadillo (&gt;= 15.0.2-2)</li>
 <li>Switched README.Rmd to README.qmd to use Quarto for rendering.</li>
+<li>Addressed deprecation warning of <code>"replace conv_to&lt;...&gt;::from(X) with as_scalar(X)"</code> by using <code>arma::as_scalar(...)</code> instead of <code>conv_to&lt;double&gt;::from(...)</code>.</li>
 <li>Updated GitHub Action workflows.</li>
 </ul></div>
 </div>
