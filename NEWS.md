@@ -5,6 +5,8 @@
 - Added explicit dependencies on R (>= 4.3.0), Rcpp (>= 1.1.0), and
   RcppArmadillo (>= 15.0.2-2)
 - Switched README.Rmd to README.qmd to use Quarto for rendering.
+- Addressed deprecation warning of `"replace conv_to<...>::from(X) with as_scalar(X)"` 
+  by using `arma::as_scalar(...)` instead of `conv_to<double>::from(...)`.
 - Updated GitHub Action workflows.
 
 # rrum 0.2.1

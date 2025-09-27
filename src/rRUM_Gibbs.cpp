@@ -57,9 +57,9 @@ parm_updatecpp(unsigned int N, unsigned int J, unsigned int K, unsigned int C,
         // Update alpha_ik
         for (unsigned int k = 0; k < K; ++k) {
             ai(k) = 1.0;
-            c_aik_1 = (arma::conv_to<double>::from(ai.t() * vv));
+            c_aik_1 = (arma::as_scalar(ai.t() * vv));
             ai(k) = 0.0;
-            c_aik_0 = (arma::conv_to<double>::from(ai.t() * vv));
+            c_aik_0 = (arma::as_scalar(ai.t() * vv));
 
             aik_nmrtr_k = aik_nmrtr(k) * pi(c_aik_1);
             aik_dnmntr_k = aik_dnmntr(k) * pi(c_aik_0);
@@ -90,9 +90,9 @@ parm_updatecpp(unsigned int N, unsigned int J, unsigned int K, unsigned int C,
             arma::vec Xjk = Xj.col(kj);
             arma::vec ak = alpha.col(kj);
 
-            double Sumalphak = (arma::conv_to<double>::from(ak.t() * ak));
-            double SumXjk = (arma::conv_to<double>::from(Xjk.t() * Xjk));
-            double SumXjkalphak = (arma::conv_to<double>::from(Xjk.t() * ak));
+            double Sumalphak = (arma::as_scalar(ak.t() * ak));
+            double SumXjk = (arma::as_scalar(Xjk.t() * Xjk));
+            double SumXjkalphak = (arma::as_scalar(Xjk.t() * ak));
             double bsk = SumXjkalphak;
             double ask = Sumalphak - SumXjkalphak;
             double agk = SumXjk - SumXjkalphak;
