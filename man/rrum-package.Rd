@@ -3,7 +3,6 @@
 \docType{package}
 \name{rrum-package}
 \alias{rrum-package}
-\alias{_PACKAGE}
 \title{rrum: Bayesian Estimation of the Reduced Reparameterized Unified Model with Gibbs Sampling}
 \description{
 Implementation of Gibbs sampling algorithm for Bayesian Estimation of the Reduced Reparameterized Unified Model ('rrum'), described by Culpepper and Hudson (2017) \doi{ 10.1177/0146621617707511}.
