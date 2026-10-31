@@ -25,12 +25,12 @@ Description: Implementation of Gibbs sampling algorithm for Bayesian Estimation
 URL: https://tmsalab.github.io/rrum/, https://github.com/tmsalab/rrum
 BugReports: https://github.com/tmsalab/rrum/issues
 License: GPL (>= 2)
-Depends: R (>= 4.3.0), simcdm (>= 0.1.0)
-Imports: Rcpp (>= 1.1.0)
-LinkingTo: Rcpp, RcppArmadillo (>= 15.0.2-2), rgen, simcdm
+Depends: R (>= 4.3.0), simcdm (>= 0.1.2)
+Imports: Rcpp (>= 1.1.2)
+LinkingTo: Rcpp (>= 1.1.2), RcppArmadillo (>= 15.6.2-1), rgen (>= 0.0.1), simcdm (>= 0.1.2)
 Suggests: 
-    testthat,
-    covr
+    testthat (>= 3.3.2),
+    covr (>= 3.6.5)
 Encoding: UTF-8
 RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
