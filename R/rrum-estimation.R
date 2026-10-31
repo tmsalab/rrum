@@ -6,7 +6,7 @@
 #' @param Y            A `matrix` with N rows and J columns, where N reperesnts
 #'                     the number of individuals and J the number of items. 
 #'                     `Y` indicates the indviduals' responses to each of the
-#'                     items.
+#'                     items. Missing values are not allowed.
 #' @param Q            A `matrix` with J rows and K columns indicating which
 #'                     attributes are required to answer each of the items. 
 #'                     An entry of 1 indicates attribute k is required to
@@ -57,6 +57,10 @@ rrum = function(Y, Q, chain_length = 10000L,
   
   if(length(as) != 1 | length(ag) != 1 | length(bs) != 1 | length(bg) != 1) {
     stop("as, ag, bs, and bg must all be numeric and of length 1")
+  }
+
+  if (anyNA(Y)) {
+    stop("`Y` must not contain missing values.", call. = FALSE)
   }
   
   rrum_helper(Y, Q, delta0, chain_length, as, bs, ag, bg)
