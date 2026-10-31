@@ -9,9 +9,6 @@ template:
       src: man/figures/rrum-logo-static-light.svg
       alt: The rrum hex logo, a staircase that steps down from π* by one penalty r* for each missing skill.
 
-home:
-  strip_header: true
-
 development:
   mode: auto
 
