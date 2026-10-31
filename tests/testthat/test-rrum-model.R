@@ -60,3 +60,13 @@ test_that("Verify Model Reproducibility", {
   
 })
 
+
+test_that("Verify missing responses are rejected", {
+
+  rrum_items_na = rrum_items
+  rrum_items_na[1, 1] = NA
+
+  expect_error(rrum(rrum_items_na, Q, chain_length = 10),
+               "must not contain missing values")
+
+})

@@ -19,7 +19,7 @@ rrum(
 \item{Y}{A \code{matrix} with N rows and J columns, where N reperesnts
 the number of individuals and J the number of items.
 \code{Y} indicates the indviduals' responses to each of the
-items.}
+items. Missing values are not allowed.}
 
 \item{Q}{A \code{matrix} with J rows and K columns indicating which
 attributes are required to answer each of the items.

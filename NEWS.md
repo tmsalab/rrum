@@ -1,3 +1,10 @@
+# rrum (development version)
+
+## Bug fixes
+
+- `rrum()` now stops with an error when `Y` contains missing values.
+  Previously a single `NA` produced an invalid fit without warning.
+
 # rrum 0.2.2
 
 ## Changes
