@@ -2,7 +2,7 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-# rrum
+# rrum <a href="https://tmsalab.github.io/rrum/"><picture><source media="(prefers-color-scheme: dark)" srcset="man/figures/rrum-logo-animated-dark.svg"><img src="man/figures/rrum-logo-animated-light.svg" width="150" align="right" alt="A hexagonal logo for rrum: the letters r, r, u and m stand one to a tread on a solid staircase that steps down from π* through the penalties r*₁, r*₂ and r*₃, with an orange posterior band across each tread."/></picture></a>
 
 <!-- badges: start -->
 
